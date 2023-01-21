@@ -1,0 +1,11 @@
+export const SET_BOOKS = 'SET_BOOKS'
+export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES'
+export const REMOVE_TO_FAVORITES = 'REMOVE_TO_FAVORITES'
+export const ADD_TO_CART = 'ADD_TO_CART'
+export const REMOVE_TO_CART = 'REMOVE_TO_CART'
+export const SET_COUNT_TOTAL = 'SET_COUNT_TOTAL'
+export const SET_SEARCH_VALUE = 'SET_SEARCH_VALUE'
+export const IS_LOADING = 'IS_LOADING'
+export const ACTIVE_BOOK = 'ACTIVE_BOOK'
+export const LOAD_BOOKS = 'LOAD_BOOKS'
+

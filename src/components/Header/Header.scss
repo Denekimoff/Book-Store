@@ -1,0 +1,43 @@
+@import '../../default_variables.scss';
+
+.header {
+  width: 100%;
+
+  .wrapper {
+    max-width: 75rem;
+    padding: 0 1rem;
+
+    .header__body {
+      width: 100%;
+      padding: .5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: $border_main;
+
+      a {
+        text-decoration: none;
+      }
+
+      .header__logo {
+        width: 100%;
+        font-size: 2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $text_color;
+      }
+    }
+  }
+}
+
+@media (max-width: 780px) {
+  .header {
+    .wrapper {
+      .header__body {
+        .header__logo {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+@import '../../default_variables.scss';
+
+.header__search {
+  width: 50%;
+  position: relative;
+
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    outline: none;
+    border: $border_main;
+    border-radius: 0.5rem;
+
+  }
+
+  input:focus::-webkit-input-placeholder {
+    color: transparent
+  }
+
+  svg {
+    position: absolute;
+    width: 1.3rem;
+    height: 1.3rem;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    z-index: 2;
+    fill: $icon_color;
+  }
+}
+
+.header__search:hover {
+  cursor: pointer;
+
+  input {
+    cursor: pointer;
+    border: $border_hover;
+  }
+}
+
+.header__search:active {
+  input {
+    border: $border_active;
+  }
+}
+
+@media (max-width:780px) {
+
+  .header__search {
+    margin-left: 1rem;
+    max-width: 40%;
+  }
+}
+
+@media (max-width: 450px) {
+  .header__search {
+    input::-webkit-input-placeholder {
+      color: transparent
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@import '../../default_variables.scss';
+
+.header__navmenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .navmenu__icon {
+    margin-left: .5rem;
+    width: 1.3rem;
+    height: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    svg {
+      stroke: $icon_color;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .navmenu__icon:hover {
+    svg {
+      stroke: $icon_hover_color;
+    }
+  }
+  .navmenu__icon:active {
+    svg {
+      stroke: $icon_active_color;
+    }
+  }
+
+  .navmenu__icon:nth-child(2) {
+    width: 1.9rem;
+    height: 1.9rem;
+
+    svg{
+      fill: $icon_color;
+    }
+  }
+  .navmenu__icon:nth-child(2):hover {
+    svg {
+      fill: $icon_hover_color;
+    }
+  }
+  .navmenu__icon:nth-child(2):active {
+    svg {
+      fill: $icon_active_color;
+    }
+  }
+  .navmenu__icon:nth-child(1) {
+
+    svg{
+      fill: $icon_color;
+    }
+  }
+  .navmenu__icon:nth-child(1):hover {
+    svg {
+      fill: $icon_hover_color;
+    }
+  }
+  .navmenu__icon:nth-child(1):active {
+    svg {
+      fill: $icon_active_color;
+    }
+  }
+}

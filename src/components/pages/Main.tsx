@@ -1,6 +1,9 @@
 import React from 'react'
 import { ThemeContext } from '../../context'
 import { Pagination } from '../Pagination'
+import { Rating } from '../Rating'
+
+import './Main.scss'
 
 export const Main = () => {
     const { theme } = React.useContext(ThemeContext)
@@ -12,6 +15,7 @@ export const Main = () => {
                 <ul className='main__list'>
                     {[...new Array(20)].map((_, i) => <li key={i}>Array books</li>)}
                 </ul>
+                <Rating/>
                 <Pagination/>
             </div>
         </main>

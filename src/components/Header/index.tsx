@@ -1,16 +1,23 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { ThemeContext } from '../../context'
 import { Navmenu } from '../Navmenu'
-import { Search } from '../Search'
+import { SearchInput } from '../SearchInput'
+
+import './Header.scss'
 
 export const Header = () => {
     const { theme } = React.useContext(ThemeContext)
     return (
         <header className={`header header--${theme}`}>
-            <div className='header__body'>
-                <div className='header__logo'>Bookstore</div>
-                <Search/>
-                <Navmenu/>
+            <div className='wrapper'>
+                <div className='header__body'>
+                    <Link to={'/'}>
+                        <div className='header__logo'>Bookstore</div>
+                    </Link>
+                    <SearchInput/>
+                    <Navmenu/>
+                </div>
             </div>
         </header>
     )

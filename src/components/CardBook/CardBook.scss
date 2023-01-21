@@ -1,0 +1,55 @@
+@import '../../default_variables.scss';
+
+.cardbook {
+  display: flex;
+}
+
+.cardbook--bg {
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  .cardbook__title {
+    width: 100%;
+  }
+  .cardbook__present {
+    position: relative;
+    width: 45%;
+    height: 15rem;
+    background-color: $background_card_single;
+
+    .cardbook__like {
+      padding: .5rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-radius: 0.3rem;
+      background-color: $button_primary_background;
+
+      .cardbook__like-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+          width: 2rem;
+          height: 2rem;
+          fill: #fff;
+        }
+      }
+    }
+  }
+  .cardbook__mini-info {
+    display: none;
+  }
+  .cardbook__info {
+    width: 45%;
+  }
+}
+
+.cardbook--sm {
+  flex-direction: column;
+
+  .cardbook__title {
+    display: none;
+  }
+}

@@ -1,0 +1,26 @@
+// ? Text Style
+$text_color: #000 !default;
+$text_inactive_color: rgba(0, 0, 0, .4) !default;
+$text_inactive_hover_color: $text_color !default;
+$text_inactive_active_color: $text_inactive_color !default;
+// ? Icon Style
+$icon_color: #000 !default;
+$icon_hover_color: rgba(0, 0, 0, .3) !default;
+$icon_active_color: $icon_color !default;
+//? Icon Rating Style
+$icon_rating_main_background: rgba(0, 0, 0, .1) !default;
+$icon_rating_hover_background: rgba(0, 0, 0) !default;
+$icon_rating_active_background: rgba(0, 0, 0) !default;
+// ? Background Style
+$background_main: #fff !default;
+$background_secondary: rgba(0, 0, 0, .1) !default;
+$background_card_all: #9998ff !default;
+$background_card_single: #d19dc6 !default;
+// ? Border Style
+$border_main: 1px solid rgba(0, 0, 0, .1) !default;
+$border_hover: 1px solid rgba(0, 0, 0) !default;
+$border_active: 1px solid rgba(0, 0, 0) !default;
+// ? Button Style
+$button_primary_background: #000 !default;
+$button_primary_hover_background: rgba(0, 0, 0, .8) !default;
+$button_primary_active_background: $button_primary_background !default;
