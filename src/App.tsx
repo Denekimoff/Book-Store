@@ -4,22 +4,22 @@ import { ThemeContext } from './context'
 import { THEMES } from './constants'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
-import './App.scss'
 import { Main } from './components/pages/Main'
 import { SelectBook } from './components/pages/SelectBook'
 import { Cart } from './components/pages/Cart'
+import './App.scss'
 
 export const App = () => {
-    //State app theme
+    // State app theme
     const [theme, setTheme] = React.useState(THEMES.light)
     const toggleTheme = () => {
         setTheme(prev => prev === 'light'? THEMES.dark : THEMES.light)
     }
 
     return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            <BrowserRouter>
-                <div className={`App App--${theme}`}>
+        <div className={'App App--'}>
+            <ThemeContext.Provider value={{ theme, toggleTheme }}>
+                <BrowserRouter>
                     <Header/>
                     <Routes>
                         <Route path='/'>
@@ -33,8 +33,8 @@ export const App = () => {
                         </Route>
                     </Routes>
                     <Footer/>
-                </div>
-            </BrowserRouter>
-        </ThemeContext.Provider>
+                </BrowserRouter>
+            </ThemeContext.Provider>
+        </div>
     )
 }

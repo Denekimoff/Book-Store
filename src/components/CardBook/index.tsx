@@ -5,25 +5,28 @@ import { Rating } from '../Rating'
 import './CardBook.scss'
 
 export interface ICardBook {
-  className: string
-  title: string
-  image: string
-  author: string
-  publisher: string
-  price: string
-  language: string
-  format: string
+  title: string,
+  subtitle: string,
+  image: string,
+  authors: string,
+  publisher: string,
+  year: string,
+  price: string,
+  language: string,
+  format: string,
 }
 
-export const CardBook = ({ className, title, image, author, publisher, price, language, format }: Partial<ICardBook>) => {
+export const CardBook = ({ title, subtitle, image, authors, publisher, year, price, language }: Partial<ICardBook>) => {
     return (
-        <div className={`cardbook cardbook--bg ${className}`}>
+        <div className='cardbook cardbook--bg'>
             <h2 className='cardbook__title'>
                 {title}
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             </h2>
             <div className='cardbook__present'>
-                <div className='cardbook__image'>{image}</div>
+                <div className='cardbook__image'>
+                    <img src={image} alt='book' />
+                </div>
                 <div className='cardbook__like'>
                     <div className='cardbook__like-button'>
                         <Like/>
@@ -34,7 +37,7 @@ export const CardBook = ({ className, title, image, author, publisher, price, la
                 <h2 className='cardbook__title'>{title}</h2>
                 <div className='cardbook__info'>
                   by
-                    <span className='cardbook__author'>{author}</span>
+                    <span className='cardbook__author'>{authors}</span>
                     <span className='release'>{publisher}</span>
                 </div>
                 <div className='cardbook__market'>
@@ -48,10 +51,10 @@ export const CardBook = ({ className, title, image, author, publisher, price, la
                     <Rating/>
                 </div>
                 <div className='cardbook__about'>
-                    <div className='cardbook__about__text'><span>{author}</span></div>
-                    <div className='cardbook__about__text'><span>{publisher}</span></div>
+                    <div className='cardbook__about__text'><span>{authors}</span></div>
+                    <div className='cardbook__about__text'><span>{`${publisher}, ${year}`}</span></div>
                     <div className='cardbook__about__text'><span>{language}</span></div>
-                    <div className='cardbook__about__text'><span>{format}</span></div>
+                    <div className='cardbook__about__text'><span>Paper book / ebook (PDF)</span></div>
                     <div className='cardbook__about__more'>More details &#11015</div>
                 </div>
                 <div className='cardbook__buttons'>

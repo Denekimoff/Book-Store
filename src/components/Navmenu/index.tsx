@@ -13,7 +13,7 @@ export const Navmenu = () => {
     const navmenu = [like, cart, user]
     return (
         <div className='header__navmenu'>
-            {navmenu.map(item => <div className='navmenu__icon'>{item}</div>)}
+            {navmenu.map((item, i) => <div key={i} className='navmenu__icon'>{item}</div>)}
         </div>
     )
 }

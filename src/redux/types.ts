@@ -1,11 +1,12 @@
 // Типы одной Book
 export interface IBook {
-    id: number,
+    isbn13: string,
     image?: string,
     title?: string,
     date?: string,
-    author?: number,
+    author?: string,
     text?: string,
+    price?: string,
 }
 
 // Типы userReducer

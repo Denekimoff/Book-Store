@@ -1,6 +1,6 @@
 import { put, takeEvery } from 'redux-saga/effects'
 
-import { ADD_TO_CART, REMOVE_TO_CART, ADD_TO_FAVORITES, REMOVE_TO_FAVORITES, SET_BOOKS, ACTIVE_BOOK, IS_LOADING, SET_SEARCH_VALUE, LOAD_BOOKS } from '../actionTypes/booksActionTypes'
+import { ADD_TO_CART, REMOVE_TO_CART, ADD_TO_FAVORITES, REMOVE_TO_FAVORITES, SET_BOOKS, ACTIVE_BOOK, IS_LOADING, SET_SEARCH_VALUE, LOAD_BOOKS, SET_COUNT_TOTAL } from '../actionTypes/booksActionTypes'
 import { IBook } from '../types'
 
 export const setBooks = (books: IBook[]) => ({
@@ -28,6 +28,11 @@ export const removeToCart = (id: any) => ({
     id,
 })
 
+export const setCountTotal = (count: string) => ({
+    type: SET_COUNT_TOTAL,
+    count,
+})
+
 export const setSearchValue = (value: string) => ({
     type: SET_SEARCH_VALUE,
     value,
@@ -38,19 +43,17 @@ export const isLoading = (loading: boolean) => ({
     loading,
 })
 
-export const activeBookId = (id: number) => ({
+export const activeBookId = (id: string) => ({
     type: ACTIVE_BOOK,
     id,
 })
 
-export const loadBooks = (currentPage: number, rowsPerPage: number, searchValue: string, loading: boolean, activePost: number) => ({
+export const loadBooks = (searchValue: string, loading: boolean) => ({
     type: LOAD_BOOKS,
-    currentPage,
-    rowsPerPage,
     searchValue,
     loading,
-    activePost,
 })
+
 export function* watcherBooks () {
     yield takeEvery(LOAD_BOOKS, fetchLoadBooks)
 }
@@ -58,9 +61,10 @@ export function* watcherBooks () {
 function* fetchLoadBooks (datas: any) {
     window.scrollTo(0, 0)
     const { loading } = datas
-    yield put(isLoading(!loading))
-    const response: Response = yield fetch('https://api.itbook.store/1.0/')
-    const data: { count: number, results: IBook[] } = yield response.json()
-    const { results } = data
-    yield put(setBooks(results))
+    yield put(isLoading(loading))
+    const response: Response = yield fetch('https://api.itbook.store/1.0/new')
+    const data: { total: string, books: IBook[] } = yield response.json()
+    const { total, books } = data
+    yield put(setCountTotal(total))
+    yield put(setBooks(books))
 }
