@@ -10,7 +10,7 @@ export const CartPage = () => {
         <section className={`cart cart--${theme}`}>
             <div className='wrapper'>
                 <Breadcrumb>
-                    <Breadcrumb.Item href='/'>LEFT ARROW</Breadcrumb.Item>
+                    <Breadcrumb.Item href='/Book-Store'>LEFT ARROW</Breadcrumb.Item>
                     {/* <Breadcrumb.Item active>Cart</Breadcrumb.Item> */}
                 </Breadcrumb>
                 <div>Content</div>

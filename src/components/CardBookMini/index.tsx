@@ -20,7 +20,7 @@ export const CardBookMini = ({ isbn13, title, subtitle, image, price }: ICardBoo
     return (
         <div className='cardbook cardbook--sm' onClick={() => dispatch(activeBookId(isbn13))}>
             <div className='cardbook__present'>
-                <Link to={'/'}>
+                <Link to={'/Book-Store'}>
                     <div className='cardbook__image'>
                         <img src={image} alt='book' />
                     </div>

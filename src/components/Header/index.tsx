@@ -12,7 +12,7 @@ export const Header = () => {
         <header className={`header header--${theme}`}>
             <div className='wrapper'>
                 <div className='header__body'>
-                    <Link to={'/'}>
+                    <Link to={'/Book-Store'}>
                         <div className='header__logo'>Bookstore</div>
                     </Link>
                     <SearchInput/>

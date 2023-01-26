@@ -25,14 +25,14 @@ export const App = () => {
                 <BrowserRouter>
                     <Header/>
                     <Routes>
-                        <Route path='/'>
+                        <Route path='/Book-Store'>
                             <Route index element={<MainPage/>} />
-                            <Route path='select_book' element={<SelectBookPage />} />
-                            <Route path='cart' element={<CartPage />} />
-                            <Route path='favorites' element={<FavoritesPage />} />
-                            <Route path='user' element={<UserSettingPage />} />
+                            <Route path='/Book-Store/select_book' element={<SelectBookPage />} />
+                            <Route path='/Book-Store/cart' element={<CartPage />} />
+                            <Route path='/Book-Store/favorites' element={<FavoritesPage />} />
+                            <Route path='/Book-Store/user' element={<UserSettingPage />} />
                             <Route path='*' element={<NotFoundPage />} />
-                            <Route path='activate'>
+                            <Route path='/Book-Store/activate'>
                                 <Route path='*' element={<></>}/>
                             </Route>
                         </Route>
