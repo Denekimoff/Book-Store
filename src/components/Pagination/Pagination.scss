@@ -1,4 +1,8 @@
+@import '../../default_variables.scss';
+
 .pagination {
+  padding-top: 3rem;
+
   .pagination__body {
     padding: 2rem 0;
     display: flex;
@@ -34,16 +38,28 @@
     border: none;
     background-color: transparent;
     font-weight: 600;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    color: #313037;
+    font-size: .8rem;
+    line-height: 1rem;
+    color: $button_primary_background;
     cursor: pointer;
 
+    svg {
+      fill: $button_primary_background;
+    }
+
     &:hover {
-      color: #2231AA;
+      color: $button_primary_hover_background;
 
       svg {
-        fill: #2231AA;
+        fill: $button_primary_hover_background;
+      }
+    }
+
+    &:active {
+      color: $button_primary_active_background;
+
+      svg {
+        fill: $button_primary_active_background;
       }
     }
   }

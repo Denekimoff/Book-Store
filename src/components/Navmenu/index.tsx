@@ -1,16 +1,16 @@
 import React from 'react'
-import { Like } from '../Icons/Like'
-import { Cart } from '../Icons/Cart'
-import { User } from '../Icons/User'
+import { LikeIcon } from '../Icons/LikeIcon'
+import { CartIcon } from '../Icons/CartIcon'
+import { UserIcon } from '../Icons/UserIcon'
 
 import './Navmenu.scss'
 
 export const Navmenu = () => {
-    const like = <Like/>
-    const cart = <Cart/>
-    const user = <User/>
-
+    const like = <LikeIcon/>
+    const cart = <CartIcon/>
+    const user = <UserIcon/>
     const navmenu = [like, cart, user]
+
     return (
         <div className='header__navmenu'>
             {navmenu.map((item, i) => <div key={i} className='navmenu__icon'>{item}</div>)}

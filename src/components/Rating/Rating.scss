@@ -1,9 +1,13 @@
+@import '../../default_variables.scss';
+
 .cardbook__rating {
-  display: inline-block;
+  display: flex;
+  justify-content: end;
+  align-items: flex-start;
   position: relative;
   height: 50px;
   line-height: 50px;
-  font-size: 50px;
+  font-size: 1.3rem;
 }
 
 .cardbook__rating label {
@@ -51,15 +55,15 @@
 }
 
 .cardbook__rating label:last-child .icon {
-  color: #000;
+  color: $icon_rating_main_background;
 }
 
 .cardbook__rating:not(:hover) label input:checked~.icon,
 .cardbook__rating:hover label:hover input~.icon {
-  color: #09f;
+  color: $icon_rating_hover_background;
 }
 
 .cardbook__rating label input:focus:not(:checked)~.icon:last-child {
-  color: #000;
-  text-shadow: 0 0 5px #09f;
+  color: $icon_rating_main_background;
+  text-shadow: 0 0 5px $icon_rating_hover_background;
 }

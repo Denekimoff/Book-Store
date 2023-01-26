@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { CardBook } from '../CardBook'
-import { Tabs } from '../Tabs'
+import { CardBook } from '../../CardBook'
+import { Tabs } from '../../Tabs'
 
-export const SelectBook = () => {
+export const SelectBookPage = () => {
     return (
         <div className='wrapper'>
             <Link to={'/'}>^---^</Link>

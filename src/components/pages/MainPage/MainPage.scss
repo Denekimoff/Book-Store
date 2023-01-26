@@ -1,0 +1,67 @@
+@import '../../../default_variables.scss';
+
+.main {
+  padding: 1rem 0;
+  min-height: 80vh;
+
+  .wrapper {
+    .main__body {
+      display: flex;
+      flex-direction: column;
+
+      .main__title {
+        padding: 3rem 1rem;
+        text-align: left;
+        text-transform: uppercase;
+        font-size: 2.5rem;
+        color: $text_color;
+        user-select: none;
+      }
+
+      .main__list {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        list-style-type: none;
+      }
+
+      .main__null {
+        min-height: 35vh;
+
+        p {
+          font-size: 1.5rem;
+          ;
+        }
+
+        p:first-child {
+          font-weight: 700;
+          font-size: 4rem;
+        }
+      }
+    }
+
+    @media (max-width: 780px) {
+      .main__body {
+
+        .main__title {
+          text-align: center;
+          font-size: 1.7rem;
+        }
+
+        .main__null {
+          p {
+            font-size: 1rem;
+          }
+
+          p:first-child {
+            font-size: 2rem;
+          }
+        }
+
+        .main__list {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

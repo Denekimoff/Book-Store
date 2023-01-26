@@ -1,0 +1,15 @@
+@import '../../default_variables.scss';
+
+.footer {
+  padding-top: 3rem;
+
+  .wrapper {
+    .footer__body {
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      color: $text_inactive_color;
+      border-top: $border_main;
+    }
+  }
+}

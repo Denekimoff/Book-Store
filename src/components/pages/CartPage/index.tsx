@@ -1,9 +1,10 @@
 import React from 'react'
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
-import { ThemeContext } from '../../context'
+import { ThemeContext } from '../../../context'
+import './CartPage.scss'
 
 
-export const Cart = () => {
+export const CartPage = () => {
     const { theme } = React.useContext(ThemeContext)
     return (
         <section className={`cart cart--${theme}`}>

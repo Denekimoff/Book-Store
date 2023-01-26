@@ -43,7 +43,7 @@ export const isLoading = (loading: boolean) => ({
     loading,
 })
 
-export const activeBookId = (id: string) => ({
+export const activeBookId = (id: number) => ({
     type: ACTIVE_BOOK,
     id,
 })

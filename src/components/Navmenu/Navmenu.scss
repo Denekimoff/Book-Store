@@ -7,6 +7,7 @@
 
   .navmenu__icon {
     margin-left: .5rem;
+    font-weight: 100;
     width: 1.3rem;
     height: 1.3rem;
     display: flex;
@@ -18,6 +19,7 @@
       stroke: $icon_color;
       width: 100%;
       height: 100%;
+      transition: stroke .2s ease-in-out;
     }
   }
   .navmenu__icon:hover {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Like } from '../Icons/Like'
+import { LikeIcon } from '../Icons/LikeIcon'
 import { Rating } from '../Rating'
 
 import './CardBook.scss'
@@ -29,7 +29,7 @@ export const CardBook = ({ title, subtitle, image, authors, publisher, year, pri
                 </div>
                 <div className='cardbook__like'>
                     <div className='cardbook__like-button'>
-                        <Like/>
+                        <LikeIcon/>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,74 @@
+@import '../../default_variables.scss';
+
+.subscribe {
+  padding-top: 2rem;
+
+  .subscribe__body {
+    width: 100%;
+    padding: 2rem;
+    text-align: left;
+    background-color: $background_secondary;
+
+    .subscribe__title {
+      font-size: 2rem;
+      text-transform: uppercase;
+      color: $text_color;
+    }
+
+    @media (max-width: 780px) {
+      .subscribe__title {
+        font-size: 1.3rem;
+      }
+    }
+
+    .subscribe__description {
+      margin: 1rem 0 2rem 0;
+      color: $text_inactive_color;
+    }
+
+    .subscribe__form {
+      width: 100%;
+      height: 3.5rem;
+      position: relative;
+
+      input {
+        width: 100%;
+        height: 100%;
+        padding-left: 1rem;
+        outline: none;
+        border: none;
+      }
+
+      input:focus::-webkit-input-placeholder {
+        color: transparent
+      }
+
+      button {
+        height: 100%;
+        padding: 0 1.5rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 1rem;
+        text-transform: uppercase;
+        color: $button_primary_color;
+        background-color: $button_primary_background;
+        cursor: pointer;
+        transition: color .25s ease-in-out;
+      }
+
+      &:hover button {
+        color: $button_primary_color_hover;
+      }
+
+      &:active button {
+        color: $button_primary_color_active;
+      }
+            @media (max-width: 780px) {
+              button {
+                font-size: 0.7rem;
+              }
+            }
+    }
+  }
+}

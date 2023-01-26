@@ -1,8 +1,9 @@
 // Типы одной Book
 export interface IBook {
-    isbn13: string,
+    isbn13: number,
     image?: string,
     title?: string,
+    subtitle?: string,
     date?: string,
     author?: string,
     text?: string,

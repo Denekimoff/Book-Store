@@ -1,16 +1,19 @@
 @import '../../default_variables.scss';
 
 .header__search {
-  width: 50%;
   position: relative;
+  width: 50%;
+  height: 2.5rem;
+  display: flex;
 
   input {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.5rem 1rem;
     outline: none;
     border: $border_main;
-    border-radius: 0.5rem;
-
+    border-radius: 0.3rem;
+    transition: background, border ease-in-out .2s;
+    background-color: transparent;
   }
 
   input:focus::-webkit-input-placeholder {
@@ -35,6 +38,7 @@
   input {
     cursor: pointer;
     border: $border_hover;
+    background-color: rgb(250, 250, 250);
   }
 }
 
