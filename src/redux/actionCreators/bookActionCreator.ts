@@ -1,6 +1,6 @@
 import { put, takeEvery } from 'redux-saga/effects'
 
-import { ADD_TO_CART, REMOVE_TO_CART, ADD_TO_FAVORITES, REMOVE_TO_FAVORITES, SET_BOOKS, ACTIVE_BOOK, IS_LOADING, SET_SEARCH_VALUE, LOAD_BOOKS, SET_COUNT_TOTAL } from '../actionTypes/booksActionTypes'
+import { ADD_TO_CART, REMOVE_TO_CART, ADD_TO_FAVORITES, REMOVE_TO_FAVORITES, SET_BOOKS, ACTIVE_BOOK, IS_LOADING, SET_SEARCH_VALUE, LOAD_BOOKS, SET_COUNT_TOTAL, ACTIVE_BOOK_ID } from '../actionTypes/booksActionTypes'
 import { IBook } from '../types'
 
 export const setBooks = (books: IBook[]) => ({
@@ -43,28 +43,57 @@ export const isLoading = (loading: boolean) => ({
     loading,
 })
 
-export const activeBookId = (id: number) => ({
-    type: ACTIVE_BOOK,
+export const activeBookId = (id: number, setIsLoading: any, navigate: any) => ({
+    type: ACTIVE_BOOK_ID,
     id,
+    setIsLoading,
+    navigate,
 })
 
-export const loadBooks = (searchValue: string, loading: boolean) => ({
+export const activeBook = (data: IBook) => ({
+    type: ACTIVE_BOOK,
+    data,
+})
+
+export const loadBooks = (searchValue: string, setIsLoading: any, navigate: any) => ({
     type: LOAD_BOOKS,
     searchValue,
-    loading,
+    setIsLoading,
+    navigate,
 })
 
 export function* watcherBooks () {
     yield takeEvery(LOAD_BOOKS, fetchLoadBooks)
+    yield takeEvery(ACTIVE_BOOK_ID, fetchGetSelectBook)
 }
 
-function* fetchLoadBooks (datas: any) {
+function* fetchGetSelectBook (payload: any) {
+    localStorage.getItem('book') && localStorage.removeItem('book')
+    const { id, setIsLoading, navigate } = payload
+    try {
+        const response: Response = yield fetch(`https://api.itbook.store/1.0/books/${id}`)
+        const data: IBook = yield response.json()
+        localStorage.setItem('book', JSON.stringify(data))
+        yield put(activeBook(data))
+        setIsLoading(false)
+    } catch (err) {
+        navigate('/Book-Store/not_found')
+        alert('Проверьте сетевое соединение или адрес запроса.')
+    }
+}
+
+function* fetchLoadBooks (payload: any) {
     window.scrollTo(0, 0)
-    const { loading } = datas
-    yield put(isLoading(loading))
-    const response: Response = yield fetch('https://api.itbook.store/1.0/new')
-    const data: { total: string, books: IBook[] } = yield response.json()
-    const { total, books } = data
-    yield put(setCountTotal(total))
-    yield put(setBooks(books))
+    const { setIsLoading, navigate } = payload
+    try {
+        const response: Response = yield fetch('https://api.itbook.store/1.0/new')
+        const data: { total: string, books: IBook[] } = yield response.json()
+        const { total, books } = data
+        yield put(setCountTotal(total))
+        yield put(setBooks(books))
+        setIsLoading(false)
+    } catch (err) {
+        navigate('/Book-Store/not_found')
+        alert('Проверьте сетевое соединение или адрес запроса.')
+    }
 }

@@ -13,7 +13,7 @@ export const Tabs = ({ text }: ITabs) => {
     return (
         <div className='tabs'>
             <div className='tabs__list'>
-                {tabs.map(tab => <div className='tabs__item'>{tab}</div>)}
+                {tabs.map((tab, i) => <div key={i} className='tabs__item'>{tab}</div>)}
             </div>
             <div className='tabs__info'>
                 <p className='tabs__text'>{text}</p>

@@ -1,31 +1,26 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { IStore } from '../../redux/types'
 import { LikeIcon } from '../Icons/LikeIcon'
 import { Rating } from '../Rating'
-
 import './CardBook.scss'
 
-export interface ICardBook {
-  title: string,
-  subtitle: string,
-  image: string,
-  authors: string,
-  publisher: string,
-  year: string,
-  price: string,
-  language: string,
-  format: string,
-}
+export const CardBook = () => {
+    //@ts-ignore
+    const book = JSON.parse(localStorage.getItem('book'))
+    const [ book1 ] = useSelector((state: IStore) => state.books.activeBook)
 
-export const CardBook = ({ title, subtitle, image, authors, publisher, year, price, language }: Partial<ICardBook>) => {
+    const data = book1 || book
+
     return (
         <div className='cardbook cardbook--bg'>
             <h2 className='cardbook__title'>
-                {title}
+                {data.title}
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             </h2>
             <div className='cardbook__present'>
                 <div className='cardbook__image'>
-                    <img src={image} alt='book' />
+                    <img src={data.image} alt='book' />
                 </div>
                 <div className='cardbook__like'>
                     <div className='cardbook__like-button'>
@@ -33,27 +28,15 @@ export const CardBook = ({ title, subtitle, image, authors, publisher, year, pri
                     </div>
                 </div>
             </div>
-            <div className='cardbook__mini-info'>
-                <h2 className='cardbook__title'>{title}</h2>
-                <div className='cardbook__info'>
-                  by
-                    <span className='cardbook__author'>{authors}</span>
-                    <span className='release'>{publisher}</span>
-                </div>
-                <div className='cardbook__market'>
-                    <div className='cardbook__price'>${price}</div>
-                    <Rating/>
-                </div>
-            </div>
             <div className='cardbook__info'>
                 <div className='cardbook__market'>
-                    <div className='cardbook__price'>${price}</div>
+                    <div className='cardbook__price'>${data.price}</div>
                     <Rating/>
                 </div>
                 <div className='cardbook__about'>
-                    <div className='cardbook__about__text'><span>{authors}</span></div>
-                    <div className='cardbook__about__text'><span>{`${publisher}, ${year}`}</span></div>
-                    <div className='cardbook__about__text'><span>{language}</span></div>
+                    <div className='cardbook__about__text'><span>{data.authors}</span></div>
+                    <div className='cardbook__about__text'><span>{`${data.publisher}, ${data.year}`}</span></div>
+                    <div className='cardbook__about__text'><span>{data.language}</span></div>
                     <div className='cardbook__about__text'><span>Paper book / ebook (PDF)</span></div>
                     <div className='cardbook__about__more'>More details &#11015</div>
                 </div>

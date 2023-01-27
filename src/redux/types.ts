@@ -1,13 +1,21 @@
 // Типы одной Book
 export interface IBook {
+    error?: number,
+    isbn10?: number,
     isbn13: number,
     image?: string,
     title?: string,
     subtitle?: string,
-    date?: string,
-    author?: string,
-    text?: string,
+    year?: string,
+    authors?: string,
+    publisher?: string,
+    language?: string,
+    pages?: string,
     price?: string,
+    desc?: string,
+    rating?: string,
+    url?: string,
+    pdf?: any,
 }
 
 // Типы userReducer
@@ -34,7 +42,8 @@ export interface IBooksStore {
     countTotal: number,
     searchValue: string,
     loading: boolean,
-    activeBook: number,
+    activeBookId: number,
+    activeBook: IBook[],
 }
 
 //Типы всего Store

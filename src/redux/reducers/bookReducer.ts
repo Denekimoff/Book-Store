@@ -1,4 +1,4 @@
-import { ACTIVE_BOOK, ADD_TO_CART, ADD_TO_FAVORITES,
+import { ACTIVE_BOOK, ACTIVE_BOOK_ID, ADD_TO_CART, ADD_TO_FAVORITES,
     IS_LOADING, REMOVE_TO_CART, REMOVE_TO_FAVORITES,
     SET_BOOKS, SET_COUNT_TOTAL, SET_SEARCH_VALUE } from '../actionTypes/booksActionTypes'
 import { IBooksStore } from '../types'
@@ -10,7 +10,8 @@ export const initialState = {
     countTotal: 0,
     searchValue: '',
     loading: false,
-    activeBook: 0,
+    activeBookId: 0,
+    activeBook: [],
 }
 
 export const booksReducer = (state: IBooksStore = initialState, action: any) => {
@@ -70,11 +71,18 @@ export const booksReducer = (state: IBooksStore = initialState, action: any) => 
             loading: !(action.loading),
         })
     }
-    case ACTIVE_BOOK: {
+    case ACTIVE_BOOK_ID: {
         const { id } = action
         return ({
             ...state,
-            activeBook: id,
+            activeBookId: id,
+        })
+    }
+    case ACTIVE_BOOK: {
+        const { data } = action
+        return ({
+            ...state,
+            activeBook: [ data],
         })
     }
     default: return state
