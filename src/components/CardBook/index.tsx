@@ -30,7 +30,7 @@ export const CardBook = () => {
             </div>
             <div className='cardbook__info'>
                 <div className='cardbook__market'>
-                    <div className='cardbook__price'>${data.price}</div>
+                    <div className='cardbook__price'>{data.price}</div>
                     <Rating/>
                 </div>
                 <div className='cardbook__about'>

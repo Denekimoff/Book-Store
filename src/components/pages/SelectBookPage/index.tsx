@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { activeBookId } from '../../../redux/actionCreators/bookActionCreator'
 import { CardBook } from '../../CardBook'
+import { ArrowBack } from '../../Icons/ArrowBack'
+import { SubscribeMail } from '../../SubscribeMail'
 import { Tabs } from '../../Tabs'
 
 export const SelectBookPage = () => {
@@ -17,9 +19,10 @@ export const SelectBookPage = () => {
 
     return (
         <div className='wrapper'>
-            <Link to={'/Book-Store'}>^---^</Link>
+            <Link to={'/Book-Store'}><ArrowBack/></Link>
             {isLoading ? <div>LOADING!</div> : <CardBook/>}
             <Tabs/>
+            <SubscribeMail/>
         </div>
     )
 }

@@ -27,8 +27,8 @@ export interface IUser {
     user?: any,
 }
 
-// Типы settingsReducer
-export interface ISettingsStore {
+// Типы settingReducer
+export interface ISettingStore {
     activeTab: string,
     currentPage: number,
     rowsPerPage: number,
@@ -49,6 +49,6 @@ export interface IBooksStore {
 //Типы всего Store
 export interface IStore {
     books: IBooksStore,
-    settings: ISettingsStore,
+    setting: ISettingStore,
     user: IUser,
 }
