@@ -7,7 +7,7 @@ import { IStore } from '../../redux/types'
 import { TABS } from '../../constants'
 import { setActiveTab } from '../../redux/actionCreators/settingActionCreator'
 
-export const Tabs = () => {
+const Tabs = () => {
     const dispatch = useDispatch()
     const { activeTab } = useSelector((state: IStore) => state.setting)
     const [ book1 ] = useSelector((state: IStore) => state.books.activeBook)
@@ -38,3 +38,5 @@ export const Tabs = () => {
         </div>
     )
 }
+
+export default Tabs

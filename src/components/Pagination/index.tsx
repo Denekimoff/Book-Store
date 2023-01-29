@@ -9,7 +9,7 @@ export interface PaginationType {
     dataCount?: number
 }
 
-export const Pagination = ({ dataCount }: PaginationType) => {
+export default function Pagination ({ dataCount }: PaginationType) {
     const { theme } = React.useContext(ThemeContext)
 
     return (

@@ -55,11 +55,11 @@ export const activeBook = (data: IBook) => ({
     data,
 })
 
-export const loadBooks = (searchValue: string, setIsLoading: any, navigate: any) => ({
+export const loadBooks = (setIsLoading: any, navigate: any, searchValue: string) => ({
     type: LOAD_BOOKS,
-    searchValue,
     setIsLoading,
     navigate,
+    searchValue,
 })
 
 export function* watcherBooks () {
@@ -78,22 +78,27 @@ function* fetchGetSelectBook (payload: any) {
         setIsLoading(false)
     } catch (err) {
         navigate('/Book-Store/not_found')
-        alert('Проверьте сетевое соединение или адрес запроса.')
     }
 }
 
 function* fetchLoadBooks (payload: any) {
     window.scrollTo(0, 0)
-    const { setIsLoading, navigate } = payload
-    try {
-        const response: Response = yield fetch('https://api.itbook.store/1.0/new')
-        const data: { total: string, books: IBook[] } = yield response.json()
-        const { total, books } = data
-        yield put(setCountTotal(total))
+    const { setIsLoading, navigate, searchValue } = payload
+    if (!searchValue) {
+        try {
+            const response: Response = yield fetch('https://api.itbook.store/1.0/new')
+            const data: { total: string, books: IBook[] } = yield response.json()
+            const { total, books } = data
+            yield put(setCountTotal(total))
+            yield put(setBooks(books))
+            setIsLoading(false)
+        } catch (err) {
+            navigate('/Book-Store/not_found')
+        }
+    } else {
+        const response: Response = yield fetch(`https://api.itbook.store/1.0/search/${searchValue}`)
+        const data : IBook = yield response.json()
+        const { books }: any = data
         yield put(setBooks(books))
-        setIsLoading(false)
-    } catch (err) {
-        navigate('/Book-Store/not_found')
-        alert('Проверьте сетевое соединение или адрес запроса.')
     }
 }

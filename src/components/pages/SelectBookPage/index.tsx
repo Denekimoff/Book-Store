@@ -1,13 +1,16 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
+import React, { lazy, Suspense } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import { activeBookId } from '../../../redux/actionCreators/bookActionCreator'
-import { CardBook } from '../../CardBook'
-import { ArrowBack } from '../../Icons/ArrowBack'
-import { SubscribeMail } from '../../SubscribeMail'
-import { Tabs } from '../../Tabs'
+import { LoaderSpin } from '../../LoaderSpin'
+import LoaderSkeleton from '../../LoaderSkeleton'
 
-export const SelectBookPage = () => {
+const ArrowBack = lazy(() => import('../../Icons/ArrowBack'))
+const CardBook = lazy(() => import('../../CardBook'))
+const Tabs = lazy(() => import('../../Tabs'))
+const SubscribeMail = lazy(() => import('../../SubscribeMail'))
+
+export default function SelectBookPage () {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [isLoading, setIsLoading] = React.useState(true)
@@ -19,10 +22,10 @@ export const SelectBookPage = () => {
 
     return (
         <div className='wrapper'>
-            <Link to={'/Book-Store'}><ArrowBack/></Link>
-            {isLoading ? <div>LOADING!</div> : <CardBook/>}
-            <Tabs/>
-            <SubscribeMail/>
+            {!isLoading && <Link to={'/Book-Store'}><ArrowBack/></Link>}
+            {isLoading ? <LoaderSkeleton /> : <CardBook/>}
+            {!isLoading && <Tabs/>}
+            {!isLoading && <SubscribeMail/>}
         </div>
     )
 }

@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux'
 import { ThemeContext } from '../../../context'
 import { IStore } from '../../../redux/types'
 import { CardBookMini } from '../../CardBookMini'
-import { SubscribeMail } from '../../SubscribeMail'
+import SubscribeMail from '../../SubscribeMail'
 
-export const FavoritesPage = () => {
+export default function FavoritesPage () {
     const { theme } = React.useContext(ThemeContext)
     const { books } = useSelector((state: IStore) => state.books)
     const { favorites } = useSelector((state: IStore) => state.books)

@@ -3,7 +3,7 @@ import { ThemeContext } from '../../context'
 import { Button } from '../Button'
 import './SubscribeMail.scss'
 
-export const SubscribeMail = () => {
+export default function SubscribeMail () {
     const { theme } = React.useContext(ThemeContext)
     return (
         <section className={`subscribe subscribe--${theme}`}>

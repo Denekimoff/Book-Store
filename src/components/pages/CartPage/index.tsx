@@ -4,7 +4,7 @@ import { ThemeContext } from '../../../context'
 import './CartPage.scss'
 
 
-export const CartPage = () => {
+export default function CartPage () {
     const { theme } = React.useContext(ThemeContext)
     return (
         <section className={`cart cart--${theme}`}>

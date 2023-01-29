@@ -1,5 +1,7 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { setSearchValue } from '../../redux/actionCreators/bookActionCreator'
 import { Rating } from '../Rating'
 
 import './CardBookMini.scss'
@@ -13,8 +15,11 @@ export interface ICardBookMini {
 }
 
 export const CardBookMini = ({ isbn13, title, subtitle, image, price }: ICardBookMini) => {
+    const dispatch = useDispatch()
+    const handlerSearchClear = () => dispatch(setSearchValue(''))
+
     return (
-        <div className='cardbook cardbook--sm'>
+        <div className='cardbook cardbook--sm' onClick={handlerSearchClear}>
             <div className='cardbook__present'>
                 <Link to={`/Book-Store/${isbn13}`}>
                     <div className='cardbook__image'>
@@ -35,3 +40,4 @@ export const CardBookMini = ({ isbn13, title, subtitle, image, price }: ICardBoo
         </div>
     )
 }
+

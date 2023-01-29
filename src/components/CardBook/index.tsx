@@ -5,7 +5,7 @@ import { LikeIcon } from '../Icons/LikeIcon'
 import { Rating } from '../Rating'
 import './CardBook.scss'
 
-export const CardBook = () => {
+const CardBook = () => {
     //@ts-ignore
     const book = JSON.parse(localStorage.getItem('book'))
     const [ book1 ] = useSelector((state: IStore) => state.books.activeBook)
@@ -48,3 +48,5 @@ export const CardBook = () => {
         </div>
     )
 }
+
+export default CardBook

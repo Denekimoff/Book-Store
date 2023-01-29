@@ -1,37 +1,35 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { lazy, Suspense } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import { ThemeContext } from '../../../context'
 import { loadBooks } from '../../../redux/actionCreators/bookActionCreator'
-import { IStore } from '../../../redux/types'
-import { CardBookMini } from '../../CardBookMini'
-import { Pagination } from '../../Pagination'
-import { SubscribeMail } from '../../SubscribeMail'
+import { LoaderSpin } from '../../LoaderSpin'
 import './MainPage.scss'
+import { IStore } from '../../../redux/types'
 
-export const MainPage = () => {
+const BookContainer = lazy(() => import('../../BookContainer'))
+const Pagination = lazy(() => import('../../Pagination'))
+const SubscribeMail = lazy(() => import('../../SubscribeMail'))
+
+export default function MainPage () {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [ isLoading, setIsLoading] = React.useState(true)
     const { theme } = React.useContext(ThemeContext)
     const { searchValue } = useSelector((state: IStore) => state.books)
-    const { books } = useSelector((state: IStore) => state.books)
+
 
     React.useEffect(() => {
-        dispatch(loadBooks(searchValue, setIsLoading, navigate))
-    }, [])
+        dispatch(loadBooks(setIsLoading, navigate, searchValue))
+    }, [searchValue])
 
     return (
         <main className={`main main--${theme}`}>
             <div className='wrapper'>
                 <div className='main__body'>
                     <h2 className='main__title'>New releases books</h2>
-                    {isLoading ?
-                        <div className='main__null'><p>{'НЕТ КНИГ :('}</p><p>Звоните разработчику!</p></div>
-                        : <div className='main__list'>
-                            {books.map(({ title, subtitle, isbn13, price, image }) => <CardBookMini key={isbn13} title={title} subtitle={subtitle} isbn13={isbn13} price={price} image={image}/>)}
-                        </div>}
-                    {books.length > 5 && <Pagination/>}
+                    <BookContainer load={isLoading}/>
+                    <Pagination/>
                     <SubscribeMail/>
                 </div>
             </div>

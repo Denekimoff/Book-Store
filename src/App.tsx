@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { LoaderBar } from './components/LoaderBar'
 import { ThemeContext } from './context'
 import { THEMES } from './constants'
-import { Layout } from './components/Layout'
-import { MainPage } from './components/pages/MainPage'
-import { SelectBookPage } from './components/pages/SelectBookPage'
-import { CartPage } from './components/pages/CartPage'
-import { FavoritesPage } from './components/pages/FavoritesPage'
-import { NotFoundPage } from './components/pages/NotFoundPage'
-import { UserSettingPage } from './components/pages/UserSettingPage'
 import './App.scss'
+
+const Layout = lazy(() => import('./components/Layout'))
+const MainPage = lazy(() => import('./components/pages/MainPage'))
+const SelectBookPage = lazy(() => import('./components/pages/SelectBookPage'))
+const CartPage = lazy(() => import('./components/pages/CartPage'))
+const FavoritesPage = lazy(() => import('./components/pages/FavoritesPage'))
+const NotFoundPage = lazy(() => import('./components/pages/NotFoundPage'))
+const UserSettingPage = lazy(() => import('./components/pages/UserSettingPage'))
+
 
 export const App = () => {
     // State app theme
@@ -22,20 +25,22 @@ export const App = () => {
         <div className={'App App--'}>
             <ThemeContext.Provider value={{ theme, toggleTheme }}>
                 <BrowserRouter>
-                    <Routes>
-                        <Route path='/Book-Store' element={<Layout/>}>
-                            <Route index element={<MainPage/>} />
-                            <Route path='/Book-Store/:isbn13' element={<SelectBookPage />} />
-                            <Route path='/Book-Store/cart' element={<CartPage />} />
-                            <Route path='/Book-Store/favorites' element={<FavoritesPage />} />
-                            <Route path='/Book-Store/user' element={<UserSettingPage />} />
-                            <Route path='*' element={<NotFoundPage />} />
-                            <Route path='/Book-Store/not_found' element={<NotFoundPage />} />
-                            <Route path='/Book-Store/activate'>
-                                <Route path='*' element={<></>}/>
+                    <Suspense fallback={<LoaderBar />}>
+                        <Routes>
+                            <Route path='/Book-Store' element={<Layout/>}>
+                                <Route index element={<MainPage/>} />
+                                <Route path='/Book-Store/:isbn13' element={<SelectBookPage />} />
+                                <Route path='/Book-Store/cart' element={<CartPage />} />
+                                <Route path='/Book-Store/favorites' element={<FavoritesPage />} />
+                                <Route path='/Book-Store/user' element={<UserSettingPage />} />
+                                <Route path='*' element={<NotFoundPage />} />
+                                <Route path='/Book-Store/not_found' element={<NotFoundPage />} />
+                                <Route path='/Book-Store/activate'>
+                                    <Route path='*' element={<></>}/>
+                                </Route>
                             </Route>
-                        </Route>
-                    </Routes>
+                        </Routes>
+                    </Suspense>
                 </BrowserRouter>
             </ThemeContext.Provider>
         </div>

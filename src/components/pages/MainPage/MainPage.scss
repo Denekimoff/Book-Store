@@ -1,5 +1,11 @@
 @import '../../../default_variables.scss';
 
+.center {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+}
+
 .main {
   padding: 1rem 0 1rem 0;
   min-height: 80vh;
