@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkbook_store=self.webpackChunkbook_store||[]).push([[504],{1504:function(n,o,e){e.r(o),e.d(o,{default:function(){return t}});e(2791);var r=e(7689),s=e(184);function t(){var n=(0,r.s0)();return(0,s.jsxs)("div",{className:"not__found",children:["UUUPS...THIS PAGE DOESN'T EXIST. GO",(0,s.jsx)("span",{onClick:function(){return n("/Book-Store")},children:" HOME."})]})}}}]);
+//# sourceMappingURL=504.9f2e60fe.chunk.js.map

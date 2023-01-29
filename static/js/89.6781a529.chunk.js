@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkbook_store=self.webpackChunkbook_store||[]).push([[89],{89:function(e,t,n){n.r(t),n.d(t,{default:function(){return o}});var r=n(2791),s=n(7324),u=n(184);function o(){var e=r.useContext(s.N).theme;return(0,u.jsx)("div",{className:"user user--".concat(e),children:"UserSettingPage"})}}}]);
+//# sourceMappingURL=89.6781a529.chunk.js.map
