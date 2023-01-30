@@ -1,11 +1,10 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { ThemeContext } from '../../../context'
 import { loadBooks } from '../../../redux/actionCreators/bookActionCreator'
-import { LoaderSpin } from '../../LoaderSpin'
-import './MainPage.scss'
 import { IStore } from '../../../redux/types'
+import './MainPage.scss'
 
 const BookContainer = lazy(() => import('../../BookContainer'))
 const Pagination = lazy(() => import('../../Pagination'))

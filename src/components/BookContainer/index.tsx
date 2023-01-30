@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { IStore } from '../../redux/types'
 import { CardBookMini } from '../CardBookMini'
 import LoaderMiniSkeleton from '../LoaderMiniSkeleton'

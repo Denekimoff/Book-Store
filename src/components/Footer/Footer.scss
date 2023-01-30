@@ -5,11 +5,14 @@
 
   .wrapper {
     .footer__body {
+      width: 100%;
       padding: 1rem;
+      padding-bottom: 1.5rem;
       display: flex;
       justify-content: space-between;
-      color: $text_inactive_color;
+      color: #fff;
       border-top: $border_main;
+      background-color: rgb(218 150 28);
     }
   }
 }
