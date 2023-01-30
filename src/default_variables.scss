@@ -1,5 +1,13 @@
+@import './assets/fonts/fonts.scss';
+
 // ? Text Style
-$text_color: rgb(40, 40, 40) !default;
+$font_logo: Rye !default;
+$font_page_title: Yeseva One !default;
+$font_card_title: Aboreto !default;
+$font_card: Playfair Display !default;
+$text_color_logo: #fff !default;
+$text_color_page_title: rgb(40 40 40 / .7) !default;
+$text_color: rgba(0, 0, 0, 0.7) !default;
 $text_inactive_color: rgba(40, 40, 40, .4) !default;
 $text_inactive_hover_color: $text_color !default;
 $text_inactive_active_color: $text_inactive_color !default;
@@ -7,6 +15,9 @@ $text_inactive_active_color: $text_inactive_color !default;
 $icon_color: rgba(0, 0, 0, .6) !default;
 $icon_hover_color: rgb(255, 0, 0) !default;
 $icon_active_color: $icon_color !default;
+$icon_header_color: #fff;
+$icon_header_hover_color: rgb(210, 210, 210) !default;
+$icon_header_active_color: $icon_header_color !default;
 //? Icon Rating Style
 $icon_rating_main_background: rgba(0, 0, 0, .25) !default;
 $icon_rating_hover_background: rgb(247, 224, 0)!default;
@@ -14,15 +25,15 @@ $icon_rating_active_background: rgb(247, 224, 0)!default;
 // ? Background Style
 $background_main: #fff !default;
 $background_secondary: rgba(0, 0, 0, .05) !default;
-$background_card_all: #8b8ae6 !default;
-$background_hover_card_all: #5754e6 !default;
+$background_card_all: #b75c5c !default;
+$background_hover_card_all: #bb2121 !default;
 $background_card_single: #d19dc6 !default;
 // ? Border Style
-$border_main: 1px solid rgba(0, 0, 0, .1) !default;
+$border_main: 1px solid #0101 !default;
 $border_hover: 1px solid rgba(0, 0, 0, .7) !default;
 $border_active: 1px solid rgba(0, 0, 0) !default;
 // ? Button Style
-$button_primary_background: #000 !default;
+$button_primary_background: rgba(0, 0, 0, .8) !default;
 $button_primary_hover_background: rgba(0, 0, 0, .7) !default;
 $button_primary_active_background: $button_primary_background !default;
 $button_primary_color: #fff;

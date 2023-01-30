@@ -1,0 +1,59 @@
+@import '../../default_variables.scss';
+
+.tabs {
+  .tabs__list {
+    margin: 1rem;
+    display: flex;
+    flex-flow: row;
+    border-bottom: $border_main;
+
+    .tabs__item {
+      padding: 1rem;
+      border-bottom: 1px solid transparent;
+      transition: all ease-in-out .2s;
+      cursor: pointer;
+    }
+
+    .tabs__item--active {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  .tabs__info {
+    margin: 1rem;
+    padding-bottom: 1rem;
+    height: 8rem;
+    overflow: auto;
+    border-bottom: $border_main;
+
+    .tabs__text {
+      text-align: left;
+      margin: 0 2rem;
+
+      a {
+        margin-left: 0;
+        justify-content: flex-start;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .tabs__social {
+    margin: 0 1rem;
+    display: flex;
+    flex-flow: row;
+    justify-content: end;
+
+    .tabs__icon {
+      padding: .2rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+
+      .dots {
+            position: relative;
+              top: 6px;
+      }
+    }
+  }
+}

@@ -1,9 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { ThemeContext } from '../../../context'
 import { IStore } from '../../../redux/types'
 import { CardBookMini } from '../../CardBookMini'
 import SubscribeMail from '../../SubscribeMail'
+import '../MainPage/MainPage.scss'
 
 export default function FavoritesPage () {
     const { theme } = React.useContext(ThemeContext)
@@ -17,10 +19,12 @@ export default function FavoritesPage () {
                 <div className='main__body'>
                     <h2 className='main__title'>Favorites</h2>
                     {!(favorites.length) ?
-                        <div className='main__null'><p>{'У вас нет ни одной любимой книги :('}</p></div>
+                        <div className='main__null'><p>{'У вас нет ни одной любимой книги :('}</p><p>Вы можете выбрать к себе в коллекцию книги из <Link to={'/Book-Store'}>нового поступления</Link>.</p></div>
                         : <div className='main__list'>
                             {dataFavorites.map(({ title, subtitle, isbn13, price, image }) => <CardBookMini key={isbn13} title={title} subtitle={subtitle} isbn13={isbn13} price={price} image={image}/>)}
-                        </div>}                    <SubscribeMail/>
+                        </div>
+                    }
+                    <SubscribeMail/>
                 </div>
             </div>
         </main>

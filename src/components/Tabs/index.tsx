@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { IStore } from '../../redux/types'
 import { TABS } from '../../constants'
 import { setActiveTab } from '../../redux/actionCreators/settingActionCreator'
+import './Tabs.scss'
 
 const Tabs = () => {
     const dispatch = useDispatch()
@@ -22,14 +23,14 @@ const Tabs = () => {
             </div>
             <div className='tabs__info'>
                 <p className='tabs__text'>
-                    {activeTab.includes('Description') ? data.desc : activeTab.includes('Authors') ? data.authors : data.url}</p>
+                    {activeTab.includes('Description') ? data.desc : activeTab.includes('Authors') ? data.authors : (<a href={data.url} target='_blank' rel='noopener noreferrer'>Click me to view this product.</a>)}</p>
             </div>
             <div className='tabs__social'>
                 <div className='tabs__icon'>
-                    <Facebook/>
+                    <Twitter/>
                 </div>
                 <div className='tabs__icon'>
-                    <Twitter/>
+                    <Facebook/>
                 </div>
                 <div className='tabs__icon'>
                     <Dots/>

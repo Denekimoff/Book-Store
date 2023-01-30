@@ -1,0 +1,18 @@
+@import '../../../default_variables.scss';
+
+.select-book {
+  .wrapper {
+    .select-book__body {
+      display: flex;
+      flex-direction: column;
+
+      a{
+        margin-left: 2rem;
+        align-self: flex-start;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

@@ -1,9 +1,9 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { activeBookId } from '../../../redux/actionCreators/bookActionCreator'
-import { LoaderSpin } from '../../LoaderSpin'
 import LoaderSkeleton from '../../LoaderSkeleton'
+import './SelectBookPage.scss'
 
 const ArrowBack = lazy(() => import('../../Icons/ArrowBack'))
 const CardBook = lazy(() => import('../../CardBook'))
@@ -21,11 +21,15 @@ export default function SelectBookPage () {
     }, [isbn13])
 
     return (
-        <div className='wrapper'>
-            {!isLoading && <Link to={'/Book-Store'}><ArrowBack/></Link>}
-            {isLoading ? <LoaderSkeleton /> : <CardBook/>}
-            {!isLoading && <Tabs/>}
-            {!isLoading && <SubscribeMail/>}
+        <div className='select-book'>
+            <div className='wrapper'>
+                <div className='select-book__body'>
+                    {!isLoading && <Link to={'/Book-Store'}><ArrowBack/></Link>}
+                    {isLoading ? <LoaderSkeleton /> : <CardBook/>}
+                    {!isLoading && <Tabs/>}
+                    {!isLoading && <SubscribeMail/>}
+                </div>
+            </div>
         </div>
     )
 }

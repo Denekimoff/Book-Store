@@ -7,42 +7,43 @@ import './CardBook.scss'
 
 const CardBook = () => {
     //@ts-ignore
-    const book = JSON.parse(localStorage.getItem('book'))
-    const [ book1 ] = useSelector((state: IStore) => state.books.activeBook)
-
-    const data = book1 || book
+    const bookLocal = JSON.parse(localStorage.getItem('book'))
+    const [ bookStore ] = useSelector((state: IStore) => state.books.activeBook)
+    const data = bookStore || bookLocal
 
     return (
-        <div className='cardbook cardbook--bg'>
+        <div className='cardbook--bg'>
             <h2 className='cardbook__title'>
                 {data.title}
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             </h2>
-            <div className='cardbook__present'>
-                <div className='cardbook__image'>
-                    <img src={data.image} alt='book' />
-                </div>
-                <div className='cardbook__like'>
-                    <div className='cardbook__like-button'>
-                        <LikeIcon/>
+            <div className='cardbook__main'>
+                <div className='cardbook__present'>
+                    <div className='cardbook__image'>
+                        <img src={data.image} alt='book' />
+                    </div>
+                    <div className='cardbook__like'>
+                        <div className='cardbook__like-button'>
+                            <LikeIcon/>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className='cardbook__info'>
-                <div className='cardbook__market'>
-                    <div className='cardbook__price'>{data.price}</div>
-                    <Rating/>
-                </div>
-                <div className='cardbook__about'>
-                    <div className='cardbook__about__text'><span>{data.authors}</span></div>
-                    <div className='cardbook__about__text'><span>{`${data.publisher}, ${data.year}`}</span></div>
-                    <div className='cardbook__about__text'><span>{data.language}</span></div>
-                    <div className='cardbook__about__text'><span>Paper book / ebook (PDF)</span></div>
-                    <div className='cardbook__about__more'>More details &#11015</div>
-                </div>
-                <div className='cardbook__buttons'>
-                    <button className='cardbook__add'>Add to cart</button>
-                    <button className='cardbook__previews'>Previews book</button>
+                <div className='cardbook__info'>
+                    <div className='cardbook__market'>
+                        <div className='cardbook__price'>{data.price}</div>
+                        <Rating/>
+                    </div>
+                    <div className='cardbook__about'>
+                        <div className='cardbook__about__text'><span>{data.authors}</span></div>
+                        <div className='cardbook__about__text'><span>{`${data.publisher}, ${data.year}`}</span></div>
+                        <div className='cardbook__about__text'><span>{data.language}</span></div>
+                        <div className='cardbook__about__text'><span>Paper book / ebook (PDF)</span></div>
+                        <div className='cardbook__about__more'>More details &#11015</div>
+                    </div>
+                    <div className='cardbook__buttons'>
+                        <button className='cardbook__add'>Add to cart</button>
+                        <button className='cardbook__previews'>Previews book</button>
+                    </div>
                 </div>
             </div>
         </div>
