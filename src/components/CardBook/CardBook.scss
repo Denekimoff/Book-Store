@@ -12,7 +12,7 @@
 
   .cardbook__title {
     max-width: 100%;
-    padding: 1rem 0 1rem 0;
+    padding: 1rem .5rem 1rem .5rem;
     margin: 0 0 1rem 0;
     align-self: center;
     font-family: Aboreto;
@@ -62,16 +62,73 @@
         }
       }
     }
-  }
 
-  .cardbook__info {
-    width: 45%;
+    .cardbook__info {
+      display: flex;
+      flex-flow: column;
+      width: 45%;
+      align-items: center;
+      @media (max-width: 550px) {
+        width: 90%;
+
+      }
+
+      .cardbook__market {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        .cardbook__price {
+          font-family: $font_logo;
+          font-size: 1.5rem;
+        }
+
+        .cardbook__rating {
+          label {
+            span {
+              font-size: 2.5rem;
+            }
+          }
+        }
+      }
+
+      .cardbook__about {
+        flex: 1 0 0;
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+
+        .cardbook__about__text {
+          width: 100%;
+          padding: .5rem 0;
+          display: flex;
+          flex-flow: row;
+          justify-content: space-between;
+        }
+        .cardbook__about__more {
+          margin: 1rem auto;
+          width: fit-content;
+          position: relative;
+        }
+                .cardbook__about__more::before {
+                  content: "\25BC";
+                  position: absolute;
+                  right: -30%;
+                  top: 2%;
+                }
+      }
+    }
   }
 }
 
 @media (max-width: 780px) {
   .cardbook--bg {
-    .cardbook__title {}
+    .cardbook__title {
+      @media (max-width: 550px) {
+        padding: 1rem 1.5rem;
+      }
+    }
 
     .cardbook__main {
       .cardbook__present {
@@ -83,6 +140,11 @@
         .cardbook__image {}
 
         .cardbook__like {
+          @media (max-width: 550px) {
+            top: 1rem;
+            right: 1rem;
+          }
+
           .cardbook__like-button {
             svg {
               width: 1rem;

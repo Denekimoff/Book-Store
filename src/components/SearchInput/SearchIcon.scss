@@ -8,14 +8,14 @@
 
   input {
     width: 100%;
-    padding: 0.5rem 1rem;
+    padding: .5rem 2rem .5rem 1rem;
     outline: none;
     color: #fff;
     border: 1px solid #fff;
-    border-radius: 0.3rem;
+    border-radius: .3rem;
     transition: all ease-in-out .15s;
     background-color: rgb(226, 137, 3);
-    font-family: $font_card;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 1rem;
   }
 
@@ -68,7 +68,7 @@
     }
 
     svg {
-      right: 0.4rem;
+      right: .4rem;
     }
   }
 }

@@ -21,10 +21,13 @@
 
   .tabs__info {
     margin: 1rem;
-    padding-bottom: 1rem;
     height: 8rem;
     overflow: auto;
     border-bottom: $border_main;
+
+    @media (max-width: 550px) {
+      height: 13rem;
+    }
 
     .tabs__text {
       text-align: left;

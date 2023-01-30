@@ -34,11 +34,11 @@ const CardBook = () => {
                         <Rating/>
                     </div>
                     <div className='cardbook__about'>
-                        <div className='cardbook__about__text'><span>{data.authors}</span></div>
-                        <div className='cardbook__about__text'><span>{`${data.publisher}, ${data.year}`}</span></div>
-                        <div className='cardbook__about__text'><span>{data.language}</span></div>
-                        <div className='cardbook__about__text'><span>Paper book / ebook (PDF)</span></div>
-                        <div className='cardbook__about__more'>More details &#11015</div>
+                        <div className='cardbook__about__text'><span>Authors:</span><span>{data.authors}</span></div>
+                        <div className='cardbook__about__text'><span>Publisher:</span><span>{`${data.publisher}, ${data.year}`}</span></div>
+                        <div className='cardbook__about__text'><span>Language:</span><span>{data.language}</span></div>
+                        <div className='cardbook__about__text'><span>Format:</span><span>Paper book / ebook (PDF)</span></div>
+                        <div className='cardbook__about__more'>More details</div>
                     </div>
                     <div className='cardbook__buttons'>
                         <button className='cardbook__add'>Add to cart</button>
