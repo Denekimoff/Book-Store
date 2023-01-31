@@ -30,7 +30,7 @@ export const CardBookMini = ({ isbn13, title, subtitle, image, price }: ICardBoo
             <div className='cardbook__mini-info'>
                 <h2 className='cardbook__title'>{title}</h2>
                 <div className='cardbook__info'>
-                    <span className='cardbook__subtitle'>{subtitle}</span>
+                    <span className='cardbook__subtitle'>{subtitle ? subtitle : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, quibusdam!'}</span>
                 </div>
                 <div className='cardbook__market'>
                     <div className='cardbook__price'>{price}</div>

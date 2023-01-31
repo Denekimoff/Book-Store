@@ -11,20 +11,16 @@
     padding: .5rem 2rem .5rem 1rem;
     outline: none;
     color: #fff;
-    border: 1px solid #fff;
+    border: none;
     border-radius: .3rem;
     transition: all ease-in-out .15s;
-    background-color: rgb(226, 137, 3);
-    font-family: 'Times New Roman', Times, serif;
+    background-color: #be945d;
+    font: $font_montserrat_200_italic;
     font-size: 1rem;
   }
 
   input::placeholder {
     color: #fff;
-  }
-
-  input:focus::-webkit-input-placeholder {
-    color: transparent
   }
 
   svg {
@@ -43,15 +39,30 @@
   cursor: pointer;
 
   input {
-    border-color: rgb(210, 210, 210);
-    background-color: rgb(233, 169, 74);
+    // border-color: rgb(210, 210, 210);
+    background-color: rgb(255, 255, 255);
+    color: $text_color;
+  }
+
+  input::placeholder {
+    color: #c6a57a;
+  }
+
+  input:focus::-webkit-input-placeholder {
+    color: transparent
+  }
+
+  svg {
+    fill: #c6a57a;
   }
 }
 
+
+
 .header__search:focus {
   input {
-    border-color: rgb(210, 210, 210);
-    background-color: rgb(233, 169, 74);
+    // border-color: rgb(210, 210, 210);
+    background-color: rgb(255, 255, 255);
   }
 }
 

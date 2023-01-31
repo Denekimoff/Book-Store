@@ -16,7 +16,7 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: $border_main;
-      background-color: rgb(218 150 28);
+      background-color: #c6a57a;
 
       a {
         text-decoration: none;
@@ -26,18 +26,10 @@
         padding: 0.3rem;
         width: 100%;
         font-size: 1.6rem;
+        font-weight: 300;
         font-family: $font_logo;
         text-transform: uppercase;
         color: $text_color_logo;
-        border: 1px solid transparent;
-        border-radius: .3rem;
-        transition: all ease-in-out .15s;
-
-        @media (min-width: 780px) {
-          &:hover {
-            border-color: rgb(210, 210, 210);
-          }
-        }
       }
     }
   }
