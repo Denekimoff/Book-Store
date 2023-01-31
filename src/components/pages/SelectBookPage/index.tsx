@@ -24,7 +24,7 @@ export default function SelectBookPage () {
         <div className='select-book'>
             <div className='wrapper'>
                 <div className='select-book__body'>
-                    {!isLoading && <Link to={'/Book-Store'}><ArrowBack/></Link>}
+                    {!isLoading && <Link className='select-book__link' to={'/Book-Store'}><ArrowBack/></Link>}
                     {isLoading ? <LoaderSkeleton /> : <CardBook/>}
                     {!isLoading && <Tabs/>}
                     {!isLoading && <SubscribeMail/>}

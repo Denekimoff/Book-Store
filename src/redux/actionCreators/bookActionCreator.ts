@@ -8,7 +8,7 @@ export const setBooks = (books: IBook[]) => ({
     books,
 })
 
-export const addToFavorite = (id: number) => ({
+export const addToFavorite = (id: string) => ({
     type: ADD_TO_FAVORITES,
     id,
 })

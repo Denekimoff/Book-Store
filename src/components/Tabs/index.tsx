@@ -6,7 +6,6 @@ import { setActiveTab } from '../../redux/actionCreators/settingActionCreator'
 import { Twitter } from '../Icons/Twitter'
 import { Facebook } from '../Icons/Facebook'
 import { Reddit } from '../Icons/Reddit'
-import { Dots } from '../Icons/Dots'
 import './Tabs.scss'
 
 const Tabs = () => {
@@ -28,16 +27,19 @@ const Tabs = () => {
             </div>
             <div className='tabs__social'>
                 <div className='tabs__icon'>
-                    <Twitter />
+                    <a className='tabs__link' href='https://twitter.com' target='_blank' rel='noopener noreferrer'>
+                        <Twitter />
+                    </a>
                 </div>
                 <div className='tabs__icon'>
-                    <Facebook />
+                    <a className='tabs__link' href='https://www.facebook.com' target='_blank' rel='noopener noreferrer'>
+                        <Facebook />
+                    </a>
                 </div>
                 <div className='tabs__icon'>
-                    <Reddit />
-                </div>
-                <div className='tabs__icon'>
-                    <Dots />
+                    <a className='tabs__link' href='https://www.reddit.com' target='_blank' rel='noopener noreferrer'>
+                        <Reddit />
+                    </a>
                 </div>
             </div>
         </div>

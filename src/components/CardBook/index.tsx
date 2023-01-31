@@ -1,22 +1,30 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { addToFavorite } from '../../redux/actionCreators/bookActionCreator'
 import { IStore } from '../../redux/types'
 import { LikeIcon } from '../Icons/LikeIcon'
 import { Rating } from '../Rating'
 import './CardBook.scss'
 
 const CardBook = () => {
+    const dispatch = useDispatch()
     const infoRef = React.useRef(null)
     const handlerClickOnMore = () => {
         //@ts-ignore
         infoRef.current.classList.toggle('info--active')
     }
+
+
+    const [ bookStore ] = useSelector((state: IStore) => state.books.activeBook)
     //@ts-ignore
     const bookLocal = JSON.parse(localStorage.getItem('book'))
-    const [ bookStore ] = useSelector((state: IStore) => state.books.activeBook)
     const data = bookStore || bookLocal
 
-    console.log(data)
+    const handlerClickOnLikeCard = (id: any) => {
+        dispatch(addToFavorite(id))
+    }
+    const { favorites } = useSelector((state: IStore) => state.books)
+    const isIncludeFavorites = favorites.includes(data.isbn13)
 
     return (
         <div className='cardbook--bg'>
@@ -30,7 +38,7 @@ const CardBook = () => {
                         <img src={data.image} alt='book' />
                     </div>
                     <div className='cardbook__like'>
-                        <div className='cardbook__like-button'>
+                        <div className={isIncludeFavorites ? 'cardbook__like-button cardbook__like-button--active' : 'cardbook__like-button'} onClick={() => handlerClickOnLikeCard(data.isbn13)}>
                             <LikeIcon/>
                         </div>
                     </div>
