@@ -12,7 +12,20 @@
       justify-content: space-between;
       color: #fff;
       border-top: $border_main;
-      background-color: rgb(218 150 28);
+      background-color: #c6a57a;
+      font-family: $font_montserrat;
+
+      p:first-child {
+        position: relative;
+        padding-left: 1.2rem;
+      }
+
+      p:first-child::before {
+        content: "\00A9";
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
     }
   }
 }

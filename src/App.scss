@@ -2,7 +2,7 @@
 
 .App {
   text-align: center;
-  background-color: rgb(235, 235, 235);
+  background-color: #f0f0ee;
   background-image: url('./assets/img/main_background.jpg');
   // background-repeat: no-repeat;
   background-attachment: fixed;
@@ -10,6 +10,10 @@
   background-size: cover;
   min-height: 100%;
   font-family: $font_card;
+
+  @media (max-width: 550px) {
+    background-image: none;
+  }
 }
 
 .wrapper {

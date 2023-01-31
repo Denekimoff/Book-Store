@@ -94,7 +94,7 @@
   .cardbook,
   .cardbook--sm {
     margin: 1rem auto;
-    max-width: 23rem;
+    max-width: 22rem;
     width: 100%;
 
     .cardbook__present {
@@ -103,7 +103,16 @@
 
       a {
         .cardbook__image {
-          background-color: $background_hover_card_all;
+          background-color: $background_card_all;
+        }
+      }
+      @media (max-width: 550px) {
+        &:hover {
+          a{
+            .cardbook__image {
+              background-color: $background_card_all;
+            }
+          }
         }
       }
     }

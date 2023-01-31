@@ -1,11 +1,12 @@
 import React from 'react'
-import { Facebook } from '../Icons/Facebook'
-import { Twitter } from '../Icons/Twitter'
-import { Dots } from '../Icons/Dots'
 import { useDispatch, useSelector } from 'react-redux'
 import { IStore } from '../../redux/types'
 import { TABS } from '../../constants'
 import { setActiveTab } from '../../redux/actionCreators/settingActionCreator'
+import { Twitter } from '../Icons/Twitter'
+import { Facebook } from '../Icons/Facebook'
+import { Reddit } from '../Icons/Reddit'
+import { Dots } from '../Icons/Dots'
 import './Tabs.scss'
 
 const Tabs = () => {
@@ -27,13 +28,16 @@ const Tabs = () => {
             </div>
             <div className='tabs__social'>
                 <div className='tabs__icon'>
-                    <Twitter/>
+                    <Twitter />
                 </div>
                 <div className='tabs__icon'>
-                    <Facebook/>
+                    <Facebook />
                 </div>
                 <div className='tabs__icon'>
-                    <Dots/>
+                    <Reddit />
+                </div>
+                <div className='tabs__icon'>
+                    <Dots />
                 </div>
             </div>
         </div>

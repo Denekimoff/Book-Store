@@ -24,6 +24,7 @@
     .subscribe__description {
       margin: 1rem 0 2rem 0;
       color: $text_inactive_color;
+      font-size: 1.1rem;
     }
 
     .subscribe__form {
@@ -36,7 +37,7 @@
         height: 100%;
         padding-left: 1rem;
         font-size: 1rem;
-        font-family: $font_page_title;
+        font-family: $font_montserrat;
         outline: none;
         border: none;
       }

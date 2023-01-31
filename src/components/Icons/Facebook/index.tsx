@@ -2,6 +2,6 @@ import React from 'react'
 
 export const Facebook = () => {
     return (
-        <svg role='img' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><title/><path d='M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.408.593 24 1.324 24h11.494v-9.294H9.689v-3.621h3.129V8.41c0-3.099 1.894-4.785 4.659-4.785 1.325 0 2.464.097 2.796.141v3.24h-1.921c-1.5 0-1.792.721-1.792 1.771v2.311h3.584l-.465 3.63H16.56V24h6.115c.733 0 1.325-.592 1.325-1.324V1.324C24 .593 23.408 0 22.676 0'/></svg>
+        <svg enable-background='new 0 0 128 128' id='Social_Icons' version='1.1' viewBox='0 0 128 128' xmlSpace='preserve' xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink'><g id='_x31__stroke'><g id='Facebook_1_'><rect fill='none' height='128' width='128'/><path clip-rule='evenodd' d='M68.369,128H7.065C3.162,128,0,124.836,0,120.935    V7.065C0,3.162,3.162,0,7.065,0h113.871C124.837,0,128,3.162,128,7.065v113.87c0,3.902-3.163,7.065-7.064,7.065H88.318V78.431    h16.638l2.491-19.318H88.318V46.78c0-5.593,1.553-9.404,9.573-9.404l10.229-0.004V20.094c-1.769-0.235-7.841-0.761-14.906-0.761    c-14.749,0-24.846,9.003-24.846,25.535v14.246H51.688v19.318h16.681V128z' fill='#4460A0' fill-rule='evenodd' id='Facebook'/></g></g></svg>
     )
 }

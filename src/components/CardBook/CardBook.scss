@@ -16,7 +16,7 @@
     margin: 0 0 1rem 0;
     align-self: center;
     font-family: Aboreto;
-    background-color: beige;
+    background-color: #bbbbbbbe;
   }
 
   .cardbook__main {
@@ -40,12 +40,15 @@
       }
 
       .cardbook__like {
-        padding: .3rem;
+        padding: .2rem;
         position: absolute;
-        top: .2rem;
+        top: .3rem;
         right: .2rem;
         border-radius: 50%;
-        background-color: $button_primary_background;
+        background-color: #75757559;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         .cardbook__like-button {
           display: flex;
@@ -68,6 +71,7 @@
       flex-flow: column;
       width: 45%;
       align-items: center;
+
       @media (max-width: 550px) {
         width: 90%;
 
@@ -80,8 +84,9 @@
         width: 100%;
 
         .cardbook__price {
-          font-family: $font_logo;
+          font-family: $font_card_title;
           font-size: 1.5rem;
+          font-weight: 700;
         }
 
         .cardbook__rating {
@@ -91,39 +96,125 @@
             }
           }
         }
+
+        @media (max-width: 550px) {
+          margin-top: .6rem;
+
+          .cardbook__price {
+            font-size: 1.2rem;
+          }
+
+          .cardbook__rating {
+            label {
+              span {
+                font-size: 1.5rem;
+              }
+            }
+          }
+        }
       }
 
       .cardbook__about {
-        flex: 1 0 0;
+        // flex: 0 0 0;
+        overflow: hidden;
         width: 100%;
         display: flex;
         flex-flow: column;
+        max-height: 9.4rem;
+        transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
 
         .cardbook__about__text {
           width: 100%;
-          padding: .5rem 0;
+          padding: .5rem 0.5rem;
           display: flex;
           flex-flow: row;
           justify-content: space-between;
+
+          &:nth-child(odd) {
+            background-color: rgba(236, 235, 235, 0.4);
+          }
+
+          span:last-child {
+            margin-left: 1rem;
+            font-weight: 700;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 1;
+          }
         }
-        .cardbook__about__more {
-          margin: 1rem auto;
-          width: fit-content;
-          position: relative;
+      }
+
+      .cardbook__more {
+        margin: 1rem auto;
+        width: fit-content;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .cardbook__more::before {
+        content: "\25BC";
+        position: absolute;
+        right: -30%;
+        top: 2%;
+        transition: all 0.5s;
+      }
+
+      .cardbook__buttons {
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+
+        .cardbook__add,
+        .cardbook__previews {
+          width: 40%;
+          padding: 1rem 0;
+          font-family: $font_montserrat;
+          font-size: 1rem;
+          border: none;
+          outline: none;
+          cursor: pointer;
         }
-                .cardbook__about__more::before {
-                  content: "\25BC";
-                  position: absolute;
-                  right: -30%;
-                  top: 2%;
-                }
+
+        .cardbook__add {
+          background-color: rgba(0, 0, 0, .8);
+          color: #fff;
+        }
+
+        .cardbook__previews {
+          background-color: $background_secondary;
+
+          a {
+            margin: 0;
+            color: #000;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    .info--active {
+      .cardbook__about {
+        max-height: 20rem;
+        // overflow: visible;
+        transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+      }
+
+      .cardbook__more::before {
+        display: inline-block;
+        transform: rotate(180deg);
       }
     }
   }
 }
 
-@media (max-width: 780px) {
+@media (max-width: 680px) {
   .cardbook--bg {
+    margin: 1rem auto;
+    max-width: 23rem;
+    width: 100%;
+
     .cardbook__title {
       @media (max-width: 550px) {
         padding: 1rem 1.5rem;

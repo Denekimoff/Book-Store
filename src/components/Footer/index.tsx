@@ -8,7 +8,7 @@ export const Footer = () => {
         <footer className={`footer footer--${theme}`}>
             <div className='wrapper'>
                 <div className='footer__body'>
-                    <p>c 2022 Bookstore</p>
+                    <p> 2023 Bookstore by Ekimov</p>
                     <p>All rights reserved</p>
                 </div>
             </div>
