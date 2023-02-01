@@ -17,7 +17,7 @@ const Tabs = () => {
     const data = book1 || book
 
     return (
-        <div className='tabs'>
+        <section className='tabs'>
             <div className='tabs__list'>
                 {Object.values(TABS).map((tab, i) => (<div key={i} className={activeTab === tab ? 'tabs__item tabs__item--active' : 'tabs__item'} onClick={() => dispatch(setActiveTab(tab))}>{tab}</div>))}
             </div>
@@ -42,7 +42,7 @@ const Tabs = () => {
                     </a>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

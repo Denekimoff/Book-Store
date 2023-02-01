@@ -37,7 +37,7 @@ const CardBook = () => {
     }
 
     return (
-        <div className='cardbook--bg'>
+        <section className='cardbook--bg'>
             <h2 className='cardbook__title'>
                 {data.title}
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -73,7 +73,7 @@ const CardBook = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

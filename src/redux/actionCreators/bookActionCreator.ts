@@ -68,6 +68,10 @@ export function* watcherBooks () {
 }
 
 function* fetchGetSelectBook (payload: any) {
+    window.scrollBy({
+        top: -1600,
+        behavior: 'smooth',
+    })
     localStorage.getItem('book') && localStorage.removeItem('book')
     const { id, setIsLoading, navigate } = payload
     try {
@@ -82,7 +86,10 @@ function* fetchGetSelectBook (payload: any) {
 }
 
 function* fetchLoadBooks (payload: any) {
-    window.scrollTo(0, 0)
+    window.scrollBy({
+        top: -1600,
+        behavior: 'smooth',
+    })
     const { setIsLoading, navigate, searchValue } = payload
     if (!searchValue) {
         try {

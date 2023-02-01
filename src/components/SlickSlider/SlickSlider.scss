@@ -1,0 +1,28 @@
+@import '../../default_variables.scss';
+
+.myslider {
+  width: 85%;
+  margin: 1rem auto;
+  position: relative;
+
+  .myslider__top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .myslider__title {
+      // font-family: $font_raleway;
+      text-transform: uppercase;
+      font-size: 2.2rem;
+      color: $text_color;
+      padding: 1rem;
+    }
+    @media (max-width: 550px){
+      font-size: 1.7rem;
+    }
+  }
+
+  .myslider__body {
+
+  }
+}
