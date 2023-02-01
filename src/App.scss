@@ -1,6 +1,7 @@
 @import './default_variables.scss';
 
 .App {
+  min-height: 100vh;
   text-align: center;
   background-color: #f0f0ee;
   background-image: url('./assets/img/main_background.jpg');
