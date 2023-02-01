@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkbook_store=self.webpackChunkbook_store||[]).push([[855],{2855:function(n,r,e){e.r(r),e.d(r,{default:function(){return t}});e(2791);var o=e(184);function t(){return(0,o.jsx)("div",{className:"not__found",children:"Error 404...NETWORK FAILED"})}}}]);
+//# sourceMappingURL=855.f4a958f3.chunk.js.map
