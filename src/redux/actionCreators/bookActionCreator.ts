@@ -77,7 +77,7 @@ function* fetchGetSelectBook (payload: any) {
         yield put(activeBook(data))
         setIsLoading(false)
     } catch (err) {
-        navigate('/Book-Store/not_found')
+        navigate('err404')
     }
 }
 
@@ -93,7 +93,7 @@ function* fetchLoadBooks (payload: any) {
             yield put(setBooks(books))
             setIsLoading(false)
         } catch (err) {
-            navigate('/Book-Store/not_found')
+            navigate('err404')
         }
     } else {
         const response: Response = yield fetch(`https://api.itbook.store/1.0/search/${searchValue}`)

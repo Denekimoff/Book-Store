@@ -49,6 +49,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: all .2s;
 
         .cardbook__like-button {
           display: flex;
@@ -62,6 +63,17 @@
           }
 
 
+        }
+      }
+
+      .cardbook__like--active {
+        background-color: #fff;
+
+        .cardbook__like-button {
+          svg {
+            fill: red;
+            stroke: red;
+          }
         }
       }
     }
@@ -169,7 +181,9 @@
         .cardbook__add,
         .cardbook__previews {
           width: 40%;
-          padding: 1rem 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           font-family: $font_montserrat;
           font-size: 1rem;
           border: none;
@@ -186,10 +200,19 @@
           background-color: $background_secondary;
 
           a {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            padding: 1rem 0;
             margin: 0;
             color: #000;
             text-decoration: none;
           }
+        }
+
+        .cardbook__add:active,
+        .cardbook__previews:active {
+          transform: scaleX(1.01);
         }
       }
     }

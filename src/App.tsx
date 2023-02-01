@@ -5,6 +5,7 @@ import { ThemeContext } from './context'
 import { THEMES } from './constants'
 import './App.scss'
 
+const CrashNetwork = lazy(() => import('./components/CrashNetwork'))
 const Layout = lazy(() => import('./components/Layout'))
 const MainPage = lazy(() => import('./components/pages/MainPage'))
 const SelectBookPage = lazy(() => import('./components/pages/SelectBookPage'))
@@ -34,7 +35,7 @@ export const App = () => {
                                 <Route path='/Book-Store/favorites' element={<FavoritesPage />} />
                                 <Route path='/Book-Store/user' element={<UserSettingPage />} />
                                 <Route path='*' element={<NotFoundPage />} />
-                                <Route path='/Book-Store/not_found' element={<NotFoundPage />} />
+                                <Route path='err404' element={<CrashNetwork />} />
                                 <Route path='/Book-Store/activate'>
                                     <Route path='*' element={<></>}/>
                                 </Route>

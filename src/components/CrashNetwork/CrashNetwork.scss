@@ -1,0 +1,15 @@
+.not__found {
+  min-height: 80vh;
+  padding: 3rem;
+  font-size: 2rem;
+  line-height: 3rem;
+
+  span {
+    color: rgb(4, 4, 214);
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

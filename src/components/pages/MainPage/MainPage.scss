@@ -30,7 +30,7 @@
         padding-top: 1rem;
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-between;
+        justify-content: space-evenly;
         list-style-type: none;
         border-top: 1px solid #0101;
 
@@ -49,7 +49,11 @@
       .main__null {
         min-height: 35vh;
 
+        p{
+          font-size: 1.1rem;
+        }
         p:first-child {
+          padding: 1.5rem;
           font-weight: 700;
           font-size: 1.5rem;
         }
