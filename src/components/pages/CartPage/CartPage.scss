@@ -1,3 +1,23 @@
 .cart {
   min-height: 85vh;
+
+  .wrapper {
+    .cart__body {
+      display: flex;
+      flex-direction: column;
+
+      .cart__button-back {
+        margin-left: 2rem;
+        align-self: flex-start;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .cart__container {
+        margin-top: 2rem;
+      }
+    }
+  }
 }

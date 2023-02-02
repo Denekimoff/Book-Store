@@ -35,13 +35,17 @@
   }
 }
 
-.header__search:hover {
-  cursor: pointer;
-
-  input {
+.header__search {
+  input:hover{
     // border-color: rgb(210, 210, 210);
     background-color: rgb(255, 255, 255);
     color: $text_color;
+    cursor: pointer;
+  }
+  input:disabled:hover{
+    background-color: #be945d;
+    color: #fff;
+    cursor: default;
   }
 
   input::placeholder {
@@ -65,7 +69,6 @@
     background-color: rgb(255, 255, 255);
   }
 }
-
 
 
 @media (max-width:780px) {

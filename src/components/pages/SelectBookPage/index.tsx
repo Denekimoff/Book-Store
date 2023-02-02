@@ -3,9 +3,9 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { activeBookId } from '../../../redux/actionCreators/bookActionCreator'
 import LoaderSkeleton from '../../LoaderSkeleton'
-import './SelectBookPage.scss'
 import { SlickSlider } from '../../SlickSlider'
 import { IStore } from '../../../redux/types'
+import './SelectBookPage.scss'
 
 const ArrowBack = lazy(() => import('../../Icons/ArrowBack'))
 const CardBook = lazy(() => import('../../CardBook'))
@@ -14,6 +14,7 @@ const SubscribeMail = lazy(() => import('../../SubscribeMail'))
 
 export default function SelectBookPage () {
     const navigate = useNavigate()
+    const goBack = () => navigate(-1)
     const dispatch = useDispatch()
     const { books } = useSelector((state: IStore) => state.books)
     const [isLoading, setIsLoading] = React.useState(true)
@@ -27,7 +28,7 @@ export default function SelectBookPage () {
         <div className='select-book'>
             <div className='wrapper'>
                 <div className='select-book__body'>
-                    {!isLoading && <Link className='select-book__link' to={'/Book-Store'}><ArrowBack/></Link>}
+                    <div className='select-book__link' onClick={goBack}><ArrowBack/></div>
                     {isLoading ? <LoaderSkeleton /> : <CardBook/>}
                     {!isLoading && <Tabs />}
                     {!isLoading && <SubscribeMail />}
