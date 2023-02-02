@@ -18,14 +18,12 @@ export const CardItem = ({ isbn13, title, subtitle, image, price }: ICardBookMin
                     </div>
                 </Link>
             </div>
-            <div className='cartbook__mini-info'>
+            <div className='cartbook__info'>
                 <h2 className='cartbook__title'>{title}</h2>
-                <div className='cartbook__info'>
-                    <span className='cartbook__subtitle'>{subtitle ? subtitle : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, quibusdam!'}</span>
-                </div>
-                <div className='cartbook__market'>
-                    <div className='cartbook__price'>{price}</div>
-                </div>
+                <p className='cartbook__subtitle'>{subtitle ? subtitle : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, quibusdam!'}</p>
+            </div>
+            <div className='cartbook__market'>
+                <div className='cartbook__price'>{price}</div>
             </div>
         </div>
     )

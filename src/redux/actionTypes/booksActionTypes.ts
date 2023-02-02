@@ -9,4 +9,5 @@ export const IS_LOADING = 'IS_LOADING'
 export const ACTIVE_BOOK_ID = 'ACTIVE_BOOK_ID'
 export const ACTIVE_BOOK = 'ACTIVE_BOOK'
 export const LOAD_BOOKS = 'LOAD_BOOKS'
+export const CLEAR_CART = 'CLEAR_CART'
 

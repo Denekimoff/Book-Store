@@ -1,10 +1,13 @@
 @import '../../default_variables.scss';
 
 .cartbook {
+  margin: 1rem 0;
+  padding: 1rem 2rem 1rem 1rem;
   display: flex;
   flex-flow: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  background-color: rgba(236, 235, 235, 0.7);
 
   .cartbook__present {
 
@@ -15,12 +18,31 @@
       }
     }
   }
-  .cartbook__mini-info {
-    .cartbook__title {
-      
-    }
-    .cartbook__info {
 
+  .cartbook__info {
+    width: -webkit-fill-available;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-around;
+    user-select: none;
+
+    .cartbook__title {
+      padding: 1rem 2rem;
+      font-family: $font_card_title;
+    }
+
+    .cartbook__subtitle {}
+  }
+
+  .cartbook__market {
+    .cartbook__price {
+      display: contents;
+      font-size: 1.3rem;
+      font-weight: 700;
+      font-family: $font_montserrat;
+      user-select: none;
     }
   }
+
 }

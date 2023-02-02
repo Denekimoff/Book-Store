@@ -39,6 +39,7 @@ export interface IBooksStore {
     books: IBook[],
     favorites: number[],
     cart: number[],
+    price: number,
     countTotal: number,
     searchValue: string,
     loading: boolean,

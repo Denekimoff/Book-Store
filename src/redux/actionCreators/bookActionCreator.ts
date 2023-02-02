@@ -1,6 +1,6 @@
 import { put, takeEvery } from 'redux-saga/effects'
 
-import { ADD_TO_CART, REMOVE_TO_CART, ADD_TO_FAVORITES, REMOVE_TO_FAVORITES, SET_BOOKS, ACTIVE_BOOK, IS_LOADING, SET_SEARCH_VALUE, LOAD_BOOKS, SET_COUNT_TOTAL, ACTIVE_BOOK_ID } from '../actionTypes/booksActionTypes'
+import { ADD_TO_CART, REMOVE_TO_CART, ADD_TO_FAVORITES, REMOVE_TO_FAVORITES, SET_BOOKS, ACTIVE_BOOK, IS_LOADING, SET_SEARCH_VALUE, LOAD_BOOKS, SET_COUNT_TOTAL, ACTIVE_BOOK_ID, CLEAR_CART } from '../actionTypes/booksActionTypes'
 import { IBook } from '../types'
 
 export const setBooks = (books: IBook[]) => ({
@@ -26,6 +26,10 @@ export const addToCart = (id: number) => ({
 export const removeToCart = (id: any) => ({
     type: REMOVE_TO_CART,
     id,
+})
+
+export const clearCart = () => ({
+    type: CLEAR_CART,
 })
 
 export const setCountTotal = (count: string) => ({
@@ -65,14 +69,7 @@ export const loadBooks = (setIsLoading: any, navigate: any, searchValue: string)
 export function* watcherBooks () {
     yield takeEvery(LOAD_BOOKS, fetchLoadBooks)
     yield takeEvery(ACTIVE_BOOK_ID, fetchGetSelectBook)
-    yield takeEvery(ADD_TO_CART, checkCartToLocalStorage)
-    yield takeEvery(REMOVE_TO_CART, checkCartToLocalStorage)
-    yield takeEvery(ADD_TO_FAVORITES, checkFavoritesToLocalStorage)
-    yield takeEvery(REMOVE_TO_FAVORITES, checkFavoritesToLocalStorage)
 }
-
-function* checkFavoritesToLocalStorage () {}
-function* checkCartToLocalStorage () {}
 
 function* fetchGetSelectBook (payload: any) {
     window.scrollBy({

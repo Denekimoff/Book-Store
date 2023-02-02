@@ -26,10 +26,28 @@
           font-family: $font_montserrat;
           font-size: 1.1rem;
 
-          span {
-            display: contents;
-            font-size: 1.3rem;
-            font-weight: 700;
+          .cart__order {
+            display: flex;
+            padding: 1rem .5rem;
+            align-items: center;
+            justify-content: center;
+            font-family: $font_montserrat;
+            font-size: 1.1rem;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            border-radius: 0.4rem;
+            background-color: rgba(0, 0, 0, .8);
+            color: #fff;
+
+            span {
+              margin-left: .3rem;
+              font-weight: 700;
+            }
+
+            &:active {
+              transform: scaleX(.99);
+            }
           }
         }
 
@@ -47,6 +65,7 @@
         .cart__list {
           display: flex;
           flex-flow: column;
+
           .cart__null {
             font-family: $font_montserrat;
             min-height: 30vh;

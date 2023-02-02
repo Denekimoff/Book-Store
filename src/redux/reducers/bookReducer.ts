@@ -1,4 +1,5 @@
 import { ACTIVE_BOOK, ACTIVE_BOOK_ID, ADD_TO_CART, ADD_TO_FAVORITES,
+    CLEAR_CART,
     IS_LOADING, REMOVE_TO_CART, REMOVE_TO_FAVORITES,
     SET_BOOKS, SET_COUNT_TOTAL, SET_SEARCH_VALUE } from '../actionTypes/booksActionTypes'
 import { IBooksStore } from '../types'
@@ -7,6 +8,7 @@ export const initialState = {
     books: [],
     favorites: [],
     cart: [],
+    price: 0,
     countTotal: 0,
     searchValue: '',
     loading: false,
@@ -49,6 +51,13 @@ export const booksReducer = (state: IBooksStore = initialState, action: any) => 
         return ({
             ...state,
             cart: state.cart.filter((el) => el !== id),
+        })
+    }
+    case CLEAR_CART: {
+        const newCart: never[] = []
+        return ({
+            ...state,
+            cart: newCart,
         })
     }
     case SET_COUNT_TOTAL: {
