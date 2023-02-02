@@ -1,3 +1,5 @@
+@import '../../../default_variables.scss';
+
 .cart {
   min-height: 85vh;
 
@@ -16,7 +18,43 @@
       }
 
       .cart__container {
-        margin-top: 2rem;
+        .cart__total {
+          padding-right: 2rem;
+          display: flex;
+          align-items: center;
+          justify-content: end;
+          font-family: $font_montserrat;
+          font-size: 1.1rem;
+
+          span {
+            display: contents;
+            font-size: 1.3rem;
+            font-weight: 700;
+          }
+        }
+
+        .cart__title {
+          margin-bottom: 1rem;
+          padding: 1rem 2rem;
+          text-align: left;
+          text-transform: uppercase;
+          font-size: 2.2rem;
+          color: $text_color_page_title;
+          user-select: none;
+          background: #c0c0c03f;
+        }
+
+        .cart__list {
+          display: flex;
+          flex-flow: column;
+          .cart__null {
+            font-family: $font_montserrat;
+            min-height: 30vh;
+            padding: 1.5rem;
+            font-weight: 500;
+            font-size: 1.2rem;
+          }
+        }
       }
     }
   }

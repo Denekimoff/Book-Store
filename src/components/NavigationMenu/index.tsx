@@ -3,8 +3,11 @@ import { BiMenuAltRight } from 'react-icons/bi'
 import { AiOutlineClose } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import './NavigationMenu.scss'
+import { useSelector } from 'react-redux'
+import { IStore } from '../../redux/types'
 
 export default function Navbar() {
+    const { cart } = useSelector((state: IStore) => state.books)
     const [menuOpen, setMenuOpen] = useState(false)
     const [size, setSize] = useState({
         width: 0,
@@ -45,6 +48,7 @@ export default function Navbar() {
                     </li>
                     <li>
                         <Link to='/Book-Store/cart'>Cart</Link>
+                        {cart.length > 0 && <div className='cart__length'>{cart.length}</div>}
                     </li>
                     <li>
                         <Link to='/Book-Store/user'>Setting</Link>

@@ -35,17 +35,12 @@
   }
 }
 
-.header__search {
-  input:hover{
+.header__search:hover {
+  input{
     // border-color: rgb(210, 210, 210);
     background-color: rgb(255, 255, 255);
     color: $text_color;
     cursor: pointer;
-  }
-  input:disabled:hover{
-    background-color: #be945d;
-    color: #fff;
-    cursor: default;
   }
 
   input::placeholder {

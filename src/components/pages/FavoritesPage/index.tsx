@@ -25,7 +25,7 @@ export default function FavoritesPage () {
                     </div>
                     <h2 className='main__title'>Favorites</h2>
                     {!(favorites.length) ?
-                        <div className='main__null'><p>{'У вас нет ни одной любимой книги :('}</p><p>Вы можете выбрать к себе в коллекцию книги из <Link to={'/Book-Store'}>нового поступления</Link>.</p></div>
+                        <div className='main__null'><p>{'You dont have any favorite book :('}</p><p>Take advantage of the <Link to={'/Book-Store'}>new coolection</Link> of book.</p></div>
                         : <div className='main__list'>
                             {dataFavorites.map(({ title, subtitle, isbn13, price, image }) => <CardBookMini key={isbn13} title={title} subtitle={subtitle} isbn13={isbn13} price={price} image={image}/>)}
                         </div>

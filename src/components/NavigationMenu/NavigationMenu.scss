@@ -54,6 +54,14 @@
       }
 
       li {
+        position: relative;
+        .cart__length {
+          position: absolute;
+          top: -70%;
+          right: 8%;
+          height: fit-content;
+          color: rgb(255, 221, 221);
+        }
         a {
           text-decoration: none;
           font-size: 1rem;

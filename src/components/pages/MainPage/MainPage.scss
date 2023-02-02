@@ -16,6 +16,7 @@
       flex-direction: column;
 
       .main__button-back {
+        min-height: 2rem;
         margin-left: 2rem;
         align-self: flex-start;
         display: flex;
@@ -58,6 +59,7 @@
 
       .main__null {
         min-height: 30vh;
+        font-family: $font_montserrat;
 
         p {
           font-size: 1.1rem;

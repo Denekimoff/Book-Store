@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ThemeContext } from '../../../context'
 import { IStore } from '../../../redux/types'
 import { CardItem } from '../../CardItem'
@@ -25,10 +25,12 @@ export default function CartPage () {
                     </div>
                     <div className='cart__container'>
                         <h3 className='cart__title'>Cart</h3>
+                        <div className='cart__total'>{'Total price: '}<span>$00.00</span></div>
                         <div className='cart__list'>
                             {
                                 !dataCart.length ? <div className='cart__null'>Your cart is empty. Choose the product you like!</div> :
-                                    dataCart.map(item => <CardItem key={item.isbn13}/>)
+                                    dataCart.map(({ title, subtitle, isbn13, price, image }) => <CardItem key={isbn13}
+                                        title={title} subtitle={subtitle} isbn13={isbn13} price={price} image={image}/>)
                             }
                         </div>
                     </div>

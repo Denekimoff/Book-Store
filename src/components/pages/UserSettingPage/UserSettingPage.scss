@@ -1,3 +1,36 @@
+@import '../../../default_variables.scss';
+
 .user {
   min-height: 85vh;
+
+  .wrapper {
+    .user__body {
+      display: flex;
+      flex-direction: column;
+
+      .user__button-back {
+        margin-left: 2rem;
+        align-self: flex-start;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .user__container {
+        // margin-top: 2rem;
+
+        .user__title {
+          margin-bottom: 1rem;
+          padding: 1rem 2rem;
+          text-align: left;
+          text-transform: uppercase;
+          font-size: 2.2rem;
+          color: $text_color_page_title;
+          user-select: none;
+          background: #c0c0c03f;
+        }
+      }
+    }
+  }
 }

@@ -20,6 +20,7 @@ export default function SelectBookPage () {
     const [isLoading, setIsLoading] = React.useState(true)
     const { isbn13 } = useParams()
     React.useEffect(() => {
+        // console.log('КОМПОНЕНТ ОТРЕНДЕРИЛСЯ')
         //@ts-ignore
         isbn13 && dispatch(activeBookId(isbn13, setIsLoading, navigate))
     }, [isbn13])

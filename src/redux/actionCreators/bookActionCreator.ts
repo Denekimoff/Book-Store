@@ -65,19 +65,26 @@ export const loadBooks = (setIsLoading: any, navigate: any, searchValue: string)
 export function* watcherBooks () {
     yield takeEvery(LOAD_BOOKS, fetchLoadBooks)
     yield takeEvery(ACTIVE_BOOK_ID, fetchGetSelectBook)
+    yield takeEvery(ADD_TO_CART, checkCartToLocalStorage)
+    yield takeEvery(REMOVE_TO_CART, checkCartToLocalStorage)
+    yield takeEvery(ADD_TO_FAVORITES, checkFavoritesToLocalStorage)
+    yield takeEvery(REMOVE_TO_FAVORITES, checkFavoritesToLocalStorage)
 }
+
+function* checkFavoritesToLocalStorage () {}
+function* checkCartToLocalStorage () {}
 
 function* fetchGetSelectBook (payload: any) {
     window.scrollBy({
         top: -1600,
         behavior: 'smooth',
     })
-    localStorage.getItem('book') && localStorage.removeItem('book')
+    // localStorage.getItem('book') && localStorage.removeItem('book')
     const { id, setIsLoading, navigate } = payload
     try {
         const response: Response = yield fetch(`https://api.itbook.store/1.0/books/${id}`)
         const data: IBook = yield response.json()
-        localStorage.setItem('book', JSON.stringify(data))
+        // localStorage.setItem('book', JSON.stringify(data))
         yield put(activeBook(data))
         setIsLoading(false)
     } catch (err) {
@@ -107,5 +114,7 @@ function* fetchLoadBooks (payload: any) {
         const data : IBook = yield response.json()
         const { books }: any = data
         yield put(setBooks(books))
+        setIsLoading(false)
+
     }
 }

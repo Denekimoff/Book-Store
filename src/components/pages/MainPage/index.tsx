@@ -10,15 +10,15 @@ const BookContainer = lazy(() => import('../../BookContainer'))
 const Pagination = lazy(() => import('../../Pagination'))
 const SubscribeMail = lazy(() => import('../../SubscribeMail'))
 
-export default function MainPage () {
+export default React.memo(function MainPage () {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [ isLoading, setIsLoading] = React.useState(true)
     const { theme } = React.useContext(ThemeContext)
     const { searchValue } = useSelector((state: IStore) => state.books)
 
-
     React.useEffect(() => {
+        // console.log('КОМПОНЕНТ ОТРЕНДЕРИЛСЯ')
         dispatch(loadBooks(setIsLoading, navigate, searchValue))
     }, [searchValue])
 
@@ -26,6 +26,7 @@ export default function MainPage () {
         <main className={`main main--${theme}`}>
             <div className='wrapper'>
                 <div className='main__body'>
+                    <div className="main__button-back"></div>
                     <h2 className='main__title'>New releases books</h2>
                     <BookContainer load={isLoading}/>
                     <Pagination/>
@@ -34,4 +35,4 @@ export default function MainPage () {
             </div>
         </main>
     )
-}
+})

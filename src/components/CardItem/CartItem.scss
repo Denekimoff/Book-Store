@@ -1,0 +1,26 @@
+@import '../../default_variables.scss';
+
+.cartbook {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-around;
+
+  .cartbook__present {
+
+    .cartbook__link {
+
+      .cartbook__image {
+        background-color: $background_secondary;
+      }
+    }
+  }
+  .cartbook__mini-info {
+    .cartbook__title {
+      
+    }
+    .cartbook__info {
+
+    }
+  }
+}
