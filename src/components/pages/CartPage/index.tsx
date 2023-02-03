@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { ThemeContext } from '../../../context'
+import { clearCart } from '../../../redux/actionCreators/bookActionCreator'
 import { IBook, IStore } from '../../../redux/types'
 import { CardItem } from '../../CardItem'
 import ArrowBack from '../../Icons/ArrowBack'
@@ -18,12 +19,14 @@ export default function CartPage () {
     const dataCart = books?.filter(({ isbn13 }) => cart?.includes(isbn13))
     const dataPrice = dataCart?.map((item: IBook) => (item.price)?.slice(1))
     //@ts-ignore
-    const totalPrice = dataPrice?.map(item => +item).reduce((acc, item) => acc + item , 0)
+    const totalPrice = dataPrice?.map(item => +item).reduce((acc, item) => acc + item , 0) || '00.00'
 
     const handlerOnClickOrder = () => {
+        if (totalPrice === '00.00') return alert('Add product in cart')
         const conf = window.confirm('Confirm your order?')
         if (conf) {
-            // dispatch(clearCart())
+            const newCart: never[] = []
+            dispatch(clearCart(newCart))
             alert(`Order successfully paid: $${totalPrice}.`)
         } else return
     }
@@ -55,7 +58,3 @@ export default function CartPage () {
         </section>
     )
 }
-function clearCart(): any {
-    throw new Error('Function not implemented.')
-}
-

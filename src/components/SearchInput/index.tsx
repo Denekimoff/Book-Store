@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { setSearchValue } from '../../redux/actionCreators/bookActionCreator'
+import { setCurrentPage } from '../../redux/actionCreators/settingActionCreator'
 import { IStore } from '../../redux/types'
 import { CloseIcon } from '../Icons/CloseIcon'
 import { SearchIcon } from '../Icons/SearchIcon'
@@ -17,6 +18,7 @@ export const SearchInput = () => {
     const onKeyDown = ({ key }: any) => {
         if(key !== 'Enter') return
         navigate('/Book-Store')
+        dispatch(setCurrentPage(1))
     }
 
     return (

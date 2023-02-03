@@ -133,7 +133,7 @@
         display: flex;
         flex-flow: column;
         max-height: 9.2rem;
-        transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+        transition: max-height 0.3s cubic-bezier(1, 1, 1, 1);
 
         .cardbook__about__text {
           width: 100%;
@@ -169,7 +169,7 @@
         position: absolute;
         right: -30%;
         top: 2%;
-        transition: all 0.5s;
+        transition: all 1s;
       }
 
       .cardbook__buttons {
@@ -221,12 +221,12 @@
       .cardbook__about {
         max-height: 20rem;
         // overflow: visible;
-        transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+        transition: max-height 0.3s cubic-bezier(1, 1, 1, 1);
       }
 
       .cardbook__more::before {
         display: inline-block;
-        transform: rotate(180deg);
+        transform: rotate(-180deg);
       }
     }
   }

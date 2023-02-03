@@ -28,8 +28,9 @@ export const removeToCart = (id: any) => ({
     id,
 })
 
-export const clearCart = () => ({
+export const clearCart = (newCart: any) => ({
     type: CLEAR_CART,
+    newCart,
 })
 
 export const setCountTotal = (count: string) => ({

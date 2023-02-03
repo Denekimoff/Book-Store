@@ -28,8 +28,8 @@ export default React.memo(function MainPage () {
                 <div className='main__body'>
                     <div className="main__button-back"></div>
                     <h2 className='main__title'>New releases books</h2>
-                    <BookContainer load={isLoading}/>
-                    <Pagination/>
+                    <BookContainer loading={isLoading}/>
+                    {/* <Pagination/> */}
                     <SubscribeMail/>
                 </div>
             </div>

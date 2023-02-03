@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { setSearchValue } from '../../redux/actionCreators/bookActionCreator'
+import { removeToCart, setSearchValue } from '../../redux/actionCreators/bookActionCreator'
 import { ICardBookMini } from '../CardBookMini'
 import './CartItem.scss'
 
@@ -25,6 +25,7 @@ export const CardItem = ({ isbn13, title, subtitle, image, price }: ICardBookMin
             <div className='cartbook__market'>
                 <div className='cartbook__price'>{price}</div>
             </div>
+            <button className='cartbook__remove' onClick={() => dispatch(removeToCart(isbn13))}>X</button>
         </div>
     )
 }

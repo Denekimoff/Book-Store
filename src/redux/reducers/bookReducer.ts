@@ -54,7 +54,7 @@ export const booksReducer = (state: IBooksStore = initialState, action: any) => 
         })
     }
     case CLEAR_CART: {
-        const newCart: never[] = []
+        const { newCart } = action
         return ({
             ...state,
             cart: newCart,

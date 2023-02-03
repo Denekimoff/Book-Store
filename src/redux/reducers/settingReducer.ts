@@ -1,10 +1,10 @@
-import { SET_ACTIVE_TAB } from '../actionTypes/settingActionTypes'
+import { SET_ACTIVE_TAB, SET_CURRENT_PAGE } from '../actionTypes/settingActionTypes'
 import { TABS } from '../../constants'
 
 const initialState = {
     activeTab: TABS.description,
     currentPage: 1,
-    rowsPerPage: 5,
+    rowsPerPage: 4,
 }
 
 export const settingsReducer = (state = initialState, action: any) => {
@@ -14,6 +14,13 @@ export const settingsReducer = (state = initialState, action: any) => {
         return ({
             ...state,
             activeTab,
+        })
+    }
+    case SET_CURRENT_PAGE: {
+        const { newPage } = action
+        return ({
+            ...state,
+            currentPage: newPage,
         })
     }
     default: return state

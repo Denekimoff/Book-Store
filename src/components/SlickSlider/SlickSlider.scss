@@ -24,5 +24,16 @@
 
   .myslider__body {
 
+    .slick-slider {
+      .slick-list {
+        padding-left: 3rem;
+      }
+      button {
+        &::before {
+          font-size: 1.6rem;
+          color: black;
+        }
+      }
+    }
   }
 }
