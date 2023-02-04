@@ -12,6 +12,8 @@ export default function FavoritesPage () {
     const navigate = useNavigate()
     const goBack = () => navigate(-1)
     const { theme } = React.useContext(ThemeContext)
+
+    //Render data FAVORITES
     const { books } = useSelector((state: IStore) => state.books)
     const { favorites } = useSelector((state: IStore) => state.books)
     const dataFavorites = books.filter(({ isbn13 }) => favorites.includes(isbn13))

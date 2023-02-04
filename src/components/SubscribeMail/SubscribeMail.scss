@@ -68,11 +68,12 @@
       &:active button {
         color: $button_primary_color_active;
       }
-            @media (max-width: 780px) {
-              button {
-                font-size: 0.7rem;
-              }
-            }
+
+      @media (max-width: 780px) {
+        button {
+          font-size: 0.7rem;
+        }
+      }
     }
   }
 }

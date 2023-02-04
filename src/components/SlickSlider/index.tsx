@@ -9,7 +9,6 @@ import './SlickSlider.scss'
 
 export const SlickSlider = () => {
     const { books } = useSelector((state: IStore) => state.books)
-
     const settings = {
         dots: false,
         infinite: true,

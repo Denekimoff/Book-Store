@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { setSearchValue } from '../../redux/actionCreators/bookActionCreator'
 import { Rating } from '../Rating'
-
 import './CardBookMini.scss'
 
 export interface ICardBookMini {

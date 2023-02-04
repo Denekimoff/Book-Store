@@ -1,4 +1,3 @@
-import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { IStore } from '../../redux/types'
 import { TABS } from '../../constants'
@@ -11,10 +10,7 @@ import './Tabs.scss'
 const Tabs = () => {
     const dispatch = useDispatch()
     const { activeTab } = useSelector((state: IStore) => state.setting)
-    const [ book1 ] = useSelector((state: IStore) => state.books.activeBook)
-    //@ts-ignore
-    const book = JSON.parse(localStorage.getItem('book'))
-    const data = book1 || book
+    const [ data ] = useSelector((state: IStore) => state.books.activeBook)
 
     return (
         <section className='tabs'>

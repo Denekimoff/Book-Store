@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const CloseIcon = ({ onClick }: any) => {
     return (
         <>

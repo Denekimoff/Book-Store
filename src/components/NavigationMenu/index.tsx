@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
-import { BiMenuAltRight } from 'react-icons/bi'
-import { AiOutlineClose } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
-import './NavigationMenu.scss'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { setSearchValue } from '../../redux/actionCreators/bookActionCreator'
 import { IStore } from '../../redux/types'
+import { AiOutlineClose } from 'react-icons/ai'
+import { BiMenuAltRight } from 'react-icons/bi'
+import './NavigationMenu.scss'
 
 export default function Navbar() {
+    const dispatch = useDispatch()
     const { cart } = useSelector((state: IStore) => state.books)
     const [menuOpen, setMenuOpen] = useState(false)
     const [size, setSize] = useState({
@@ -37,6 +39,7 @@ export default function Navbar() {
 
     const handlerOnClickLink = () => {
         if(menuOpen) setMenuOpen(prev => !prev)
+        dispatch(setSearchValue(''))
     }
 
     return (

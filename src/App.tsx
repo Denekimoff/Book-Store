@@ -14,16 +14,14 @@ const FavoritesPage = lazy(() => import('./components/pages/FavoritesPage'))
 const NotFoundPage = lazy(() => import('./components/pages/NotFoundPage'))
 const UserSettingPage = lazy(() => import('./components/pages/UserSettingPage'))
 
-
 export const App = () => {
-    // State app theme
+    // State THEME App
     const [theme, setTheme] = React.useState(THEMES.light)
     const toggleTheme = () => {
         setTheme(prev => prev === 'light'? THEMES.dark : THEMES.light)
     }
-
     return (
-        <div className={'App App--'}>
+        <div className={`App App--${theme}`}>
             <ThemeContext.Provider value={{ theme, toggleTheme }}>
                 <BrowserRouter>
                     <Suspense fallback={<LoaderBar />}>

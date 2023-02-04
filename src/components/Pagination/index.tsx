@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
-import { Button } from '../Button'
-import { ThemeContext } from '../../context'
-import { ArrowLeftIcon } from '../Icons/ArrowLeftIcon'
-import { ArrowRightIcon } from '../Icons/ArrowRightIcon'
 import { useDispatch, useSelector } from 'react-redux'
 import { IStore } from '../../redux/types'
 import { setCurrentPage } from '../../redux/actionCreators/settingActionCreator'
+import { ThemeContext } from '../../context'
+import { ArrowRightIcon } from '../Icons/ArrowRightIcon'
+import { ArrowLeftIcon } from '../Icons/ArrowLeftIcon'
+import { Button } from '../Button'
 import './Pagination.scss'
 
 export default function Pagination () {
@@ -13,32 +13,48 @@ export default function Pagination () {
     const { theme } = React.useContext(ThemeContext)
     const [isPrevDisabled, setIsPrevDisabled] = React.useState(false)
     const [isNextDisabled, setIsNextDisabled] = React.useState(false)
+
+    //Calculate total pages:
     const currentPage = useSelector((state: IStore) => state.setting.currentPage)
     const rowsPerPage = useSelector((state: IStore) => state.setting.rowsPerPage)
     const { books } = useSelector((state: IStore) => state.books)
     const count = Math.ceil(books.length / rowsPerPage)
 
+    //Render list pages:
     const totalPage = []
     for (let i = 1; i <= count; i++ ) {
         totalPage.push(i)
     }
 
+    //Handler EventListeners on CLICK PAGINATION:
     const handlerOnPrevPage = () => {
         if (isPrevDisabled) return
         dispatch(setCurrentPage(currentPage - 1))
+        window.scrollBy({
+            top: -1600,
+            behavior: 'smooth',
+        })
     }
     const handlerOnNextPage = () => {
         if (isNextDisabled) return
         dispatch(setCurrentPage(currentPage + 1))
+        window.scrollBy({
+            top: -1600,
+            behavior: 'smooth',
+        })
     }
     const handlerOnCurrentPage = (value: number) => {
         dispatch(setCurrentPage(value))
+        window.scrollBy({
+            top: -1600,
+            behavior: 'smooth',
+        })
     }
 
     useEffect(() => {
         setIsPrevDisabled(currentPage === 1)
         setIsNextDisabled(currentPage === count)
-    }, [currentPage, rowsPerPage])
+    }, [count, currentPage, rowsPerPage])
 
     return (
         <div className={`pagination pagination--${theme}`}>

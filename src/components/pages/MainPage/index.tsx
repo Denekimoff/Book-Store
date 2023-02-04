@@ -1,38 +1,21 @@
-import React, { lazy } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
 import { ThemeContext } from '../../../context'
-import { loadBooks } from '../../../redux/actionCreators/bookActionCreator'
-import { IStore } from '../../../redux/types'
+import BookContainer from '../../BookContainer'
+import SubscribeMail from '../../SubscribeMail'
 import './MainPage.scss'
 
-const BookContainer = lazy(() => import('../../BookContainer'))
-const Pagination = lazy(() => import('../../Pagination'))
-const SubscribeMail = lazy(() => import('../../SubscribeMail'))
-
-export default React.memo(function MainPage () {
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-    const [ isLoading, setIsLoading] = React.useState(true)
+export default function MainPage () {
     const { theme } = React.useContext(ThemeContext)
-    const { searchValue } = useSelector((state: IStore) => state.books)
-
-    React.useEffect(() => {
-        // console.log('КОМПОНЕНТ ОТРЕНДЕРИЛСЯ')
-        dispatch(loadBooks(setIsLoading, navigate, searchValue))
-    }, [searchValue])
-
     return (
         <main className={`main main--${theme}`}>
             <div className='wrapper'>
                 <div className='main__body'>
-                    <div className="main__button-back"></div>
+                    <div className='main__button-back'></div>
                     <h2 className='main__title'>New releases books</h2>
-                    <BookContainer loading={isLoading}/>
-                    {/* <Pagination/> */}
+                    <BookContainer />
                     <SubscribeMail/>
                 </div>
             </div>
         </main>
     )
-})
+}

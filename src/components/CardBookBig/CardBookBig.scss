@@ -33,6 +33,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
 
       .cardbook__image {
         width: 100%;
@@ -76,6 +77,10 @@
           }
         }
       }
+
+      .cardbook__like:hover {
+        cursor: pointer;
+      }
     }
 
     .cardbook__info {
@@ -83,6 +88,7 @@
       flex-flow: column;
       width: 45%;
       align-items: center;
+      user-select: none;
 
       @media (max-width: 550px) {
         width: 90%;

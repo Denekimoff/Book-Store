@@ -11,13 +11,13 @@
     align-items: center;
 
     .myslider__title {
-      // font-family: $font_raleway;
       text-transform: uppercase;
       font-size: 2.2rem;
       color: $text_color;
       padding: 1rem;
     }
-    @media (max-width: 550px){
+
+    @media (max-width: 550px) {
       font-size: 1.7rem;
     }
   }
@@ -28,6 +28,7 @@
       .slick-list {
         padding-left: 3rem;
       }
+
       button {
         &::before {
           font-size: 1.6rem;

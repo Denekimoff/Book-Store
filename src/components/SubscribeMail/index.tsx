@@ -5,16 +5,17 @@ import './SubscribeMail.scss'
 
 export default function SubscribeMail () {
     const { theme } = React.useContext(ThemeContext)
+
     const [ email, setEmail ] = React.useState('')
     const handlerOnChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setEmail(prev => event.target.value)
+        setEmail(event.target.value)
     }
-    const handlerOnSubmit = (event: React.FormEvent) => {
+    const handlerOnSubmit = (event: any) => {
         event.preventDefault()
         alert(`Email ${email} post on server`)
-        //@ts-ignore
         event.target.reset()
     }
+
     return (
         <section className={`subscribe subscribe--${theme}`}>
             <div className='subscribe__body'>

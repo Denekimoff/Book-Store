@@ -1,16 +1,15 @@
-import React, { lazy } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import React from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { activeBookId } from '../../../redux/actionCreators/bookActionCreator'
+import { IStore } from '../../../redux/types'
 import LoaderSkeleton from '../../LoaderSkeleton'
 import { SlickSlider } from '../../SlickSlider'
-import { IStore } from '../../../redux/types'
+import ArrowBack from '../../Icons/ArrowBack'
+import CardBook from '../../CardBookBig'
+import Tabs from '../../Tabs'
+import SubscribeMail from '../../SubscribeMail'
 import './SelectBookPage.scss'
-
-const ArrowBack = lazy(() => import('../../Icons/ArrowBack'))
-const CardBook = lazy(() => import('../../CardBook'))
-const Tabs = lazy(() => import('../../Tabs'))
-const SubscribeMail = lazy(() => import('../../SubscribeMail'))
 
 export default function SelectBookPage () {
     const navigate = useNavigate()
@@ -20,9 +19,9 @@ export default function SelectBookPage () {
     const [isLoading, setIsLoading] = React.useState(true)
     const { isbn13 } = useParams()
     React.useEffect(() => {
-        // console.log('КОМПОНЕНТ ОТРЕНДЕРИЛСЯ')
         //@ts-ignore
         isbn13 && dispatch(activeBookId(isbn13, setIsLoading, navigate))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isbn13])
 
     return (
@@ -32,7 +31,7 @@ export default function SelectBookPage () {
                     <div className='select-book__link' onClick={goBack}><ArrowBack/></div>
                     {isLoading ? <LoaderSkeleton /> : <CardBook/>}
                     {!isLoading && <Tabs />}
-                    {!isLoading && <SubscribeMail />}
+                    <SubscribeMail />
                     {books.length ? <SlickSlider /> : <></>}
                 </div>
             </div>

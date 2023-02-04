@@ -34,7 +34,7 @@ export interface ISettingStore {
     rowsPerPage: number,
 }
 
-// Типы postsReducer
+// Типы booksReducer
 export interface IBooksStore {
     books: IBook[],
     favorites: number[],
@@ -42,7 +42,6 @@ export interface IBooksStore {
     price: number,
     countTotal: number,
     searchValue: string,
-    loading: boolean,
     activeBookId: number,
     activeBook: IBook[],
 }

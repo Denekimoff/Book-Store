@@ -1,7 +1,7 @@
 import { put, takeEvery } from 'redux-saga/effects'
-
-import { ADD_TO_CART, REMOVE_TO_CART, ADD_TO_FAVORITES, REMOVE_TO_FAVORITES, SET_BOOKS, ACTIVE_BOOK, IS_LOADING, SET_SEARCH_VALUE, LOAD_BOOKS, SET_COUNT_TOTAL, ACTIVE_BOOK_ID, CLEAR_CART } from '../actionTypes/booksActionTypes'
+import { ADD_TO_CART, REMOVE_TO_CART, ADD_TO_FAVORITES, REMOVE_TO_FAVORITES, SET_BOOKS, ACTIVE_BOOK, SET_SEARCH_VALUE,LOAD_BOOKS, SET_COUNT_TOTAL, ACTIVE_BOOK_ID, CLEAR_CART } from '../actionTypes/booksActionTypes'
 import { IBook } from '../types'
+import { setCurrentPage } from './settingActionCreator'
 
 export const setBooks = (books: IBook[]) => ({
     type: SET_BOOKS,
@@ -43,11 +43,6 @@ export const setSearchValue = (value: string) => ({
     value,
 })
 
-export const isLoading = (loading: boolean) => ({
-    type: IS_LOADING,
-    loading,
-})
-
 export const activeBookId = (id: number, setIsLoading: any, navigate: any) => ({
     type: ACTIVE_BOOK_ID,
     id,
@@ -77,12 +72,10 @@ function* fetchGetSelectBook (payload: any) {
         top: -1600,
         behavior: 'smooth',
     })
-    // localStorage.getItem('book') && localStorage.removeItem('book')
     const { id, setIsLoading, navigate } = payload
     try {
         const response: Response = yield fetch(`https://api.itbook.store/1.0/books/${id}`)
         const data: IBook = yield response.json()
-        // localStorage.setItem('book', JSON.stringify(data))
         yield put(activeBook(data))
         setIsLoading(false)
     } catch (err) {
@@ -103,15 +96,18 @@ function* fetchLoadBooks (payload: any) {
             const { total, books } = data
             yield put(setCountTotal(total))
             yield put(setBooks(books))
+            yield put(setCurrentPage(1))
             setIsLoading(false)
         } catch (err) {
             navigate('err404')
         }
     } else {
+        console.log('Запрос отправлен со значением - ',searchValue)
         const response: Response = yield fetch(`https://api.itbook.store/1.0/search/${searchValue}`)
         const data : IBook = yield response.json()
         const { books }: any = data
         yield put(setBooks(books))
+        yield put(setCurrentPage(1))
         setIsLoading(false)
 
     }

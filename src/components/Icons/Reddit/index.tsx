@@ -1,4 +1,3 @@
-import React from 'react'
 import './Reddit.scss'
 
 export const Reddit = () => {

@@ -1,5 +1,4 @@
 @import './assets/fonts/fonts.scss';
-
 // ? Text Style
 $font_raleway: Raleway !default;
 $font_montserrat: Montserrat !default;
@@ -22,13 +21,11 @@ $icon_header_hover_color: rgb(210, 210, 210) !default;
 $icon_header_active_color: $icon_header_color !default;
 //? Icon Rating Style
 $icon_rating_main_background: rgba(0, 0, 0, .25) !default;
-$icon_rating_hover_background: rgb(247, 202, 0)!default;
-$icon_rating_active_background: rgb(250, 227, 100)!default;
+$icon_rating_hover_background: rgb(247, 202, 0) !default;
+$icon_rating_active_background: rgb(250, 227, 100) !default;
 // ? Background Style
 $background_main: #fff !default;
 $background_secondary: rgba(0, 0, 0, .09) !default;
-// $background_card_all: #c20d0dbb !default;
-// $background_hover_card_all: #c42020 !default;
 $background_card_all: #D32F2F !default;
 $background_hover_card_all: #F44336 !default;
 $background_card_single: #D32F2F !default;

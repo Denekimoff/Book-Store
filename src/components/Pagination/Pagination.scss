@@ -1,8 +1,6 @@
 @import '../../default_variables.scss';
 
 .pagination {
-  padding-top: 3rem;
-
   .pagination__body {
     padding: 2rem 0;
     display: flex;
@@ -23,7 +21,9 @@
         padding: .5rem .7rem;
         background-color: $background_secondary;
         cursor: pointer;
+        transition: all .3s;
       }
+
       .pagination__page--active {
         font-weight: 700;
         background-color: grey;

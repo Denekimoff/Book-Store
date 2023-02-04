@@ -18,8 +18,7 @@ export default function UserSettingPage () {
                     </div>
                     <div className='user__container'>
                         <h3 className='user__title'>user</h3>
-                        <div className='user__block'>
-                        </div>
+                        <div className='user__block'></div>
                     </div>
                 </div>
             </div>

@@ -5,7 +5,6 @@
   text-align: center;
   background-color: #f0f0ee;
   background-image: url('./assets/img/main_background.jpg');
-  // background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -22,6 +21,7 @@
   margin: 0 auto;
   padding: 0 1rem;
 }
+
 @media (max-width: 780px) {
   .wrapper {
     padding: 0;

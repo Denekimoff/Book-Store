@@ -26,7 +26,7 @@
     backdrop-filter: blur(2px);
     transform: translate(0);
     transition: 0.3s ease transform;
-
+    font-family: $font_montserrat;
 
     @include breakpoint(md) {
       margin-left: 1rem;
@@ -43,28 +43,29 @@
       padding: 0;
       display: flex;
       flex-direction: column;
-      // margin-bottom: 2rem;
 
       @include breakpoint(md) {
         width: 100%;
         flex-direction: row;
         align-items: center;
         margin-bottom: 0;
-        // margin-right: calc(0.5rem + #{1rem});
       }
 
       li {
         position: relative;
+
         .cart__length {
+          font-size: .7rem;
           position: absolute;
-          top: -70%;
-          right: 8%;
+          top: -50%;
+          right: 10%;
           height: fit-content;
-          color: rgb(255, 221, 221);
+          color: rgb(255, 255, 255);
         }
+
         a {
           text-decoration: none;
-          font-size: 1rem;
+          font-size: .8rem;
           text-transform: uppercase;
           color: #fff;
           padding: 1rem;
@@ -106,25 +107,10 @@
       transition: 0.3s ease all;
       margin: 0.50em 0.50em;
 
-
-      // &:hover {
-      //   border-color: rgb(162, 162, 246);
-      //   background: rgba(rgb(162, 162, 246), 0.1);
-      //   color: rgb(162, 162, 246);
-      // }
-
-      // &:active {
-      //   border-color: rgb(162, 162, 246);
-      //   background: linear-gradient(rgba(rgb(162, 162, 246), 0.2), rgba(rgb(162, 162, 246), 0.3));
-      //   color: rgb(162, 162, 246);
-      // }
-
       &__login {
         background-color: #be945d;
       }
-
     }
-
 
     &.isMenu {
       transform: translate(100%);
