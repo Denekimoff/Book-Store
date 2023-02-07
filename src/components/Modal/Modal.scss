@@ -54,8 +54,10 @@
 
     .modal__body {
       flex: 1 0 0;
+      max-width: 90%;
       padding: 0 1rem;
       font-size: 1rem;
+      text-align: center;
     }
 
     .modal__footer {

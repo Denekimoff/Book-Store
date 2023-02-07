@@ -2,7 +2,7 @@
 
 .pagination {
   .pagination__body {
-    padding: 2rem 0;
+    padding: 1rem 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -39,6 +39,7 @@
 
   .pagination__btn {
     display: flex;
+    padding: 1rem 0;
     justify-content: center;
     align-items: center;
     gap: 0.3rem;

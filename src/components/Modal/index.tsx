@@ -12,6 +12,7 @@ interface IModalProps {
 
 export const Modal = ({ controlled, active, title, onConfirm, onClose, children }: PropsWithChildren<IModalProps>): any => {
     if (!active) return null
+    console.log(onConfirm)
 
     const handlerOnStopPropagation = (event: any) => event.stopPropagation()
 
@@ -26,8 +27,14 @@ export const Modal = ({ controlled, active, title, onConfirm, onClose, children 
                     <div className='modal__body'>{children}</div>
                     {controlled &&
                 <div className='modal__footer'>
-                    <button onClick={onConfirm}>YES</button>
-                    <button onClick={onClose}>NO</button>
+                    {onConfirm ? (
+                        <>
+                            <button onClick={onConfirm}>YES</button>
+                            <button onClick={onClose}>NO</button>
+                        </>) : (
+                        <>
+                            <button onClick={onClose}>OK</button>
+                        </>)}
                 </div>
                     }
                 </div>
