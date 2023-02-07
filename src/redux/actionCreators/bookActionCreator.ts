@@ -67,11 +67,15 @@ export function* watcherBooks () {
     yield takeEvery(ACTIVE_BOOK_ID, fetchGetSelectBook)
 }
 
-function* fetchGetSelectBook (payload: any) {
-    window.scrollBy({
-        top: -1600,
+export const scrollSmooth = () => {
+    window.scrollTo({
+        top: 0,
         behavior: 'smooth',
     })
+}
+
+function* fetchGetSelectBook (payload: any) {
+    scrollSmooth()
     const { id, setIsLoading, navigate } = payload
     try {
         const response: Response = yield fetch(`https://api.itbook.store/1.0/books/${id}`)
@@ -84,10 +88,7 @@ function* fetchGetSelectBook (payload: any) {
 }
 
 function* fetchLoadBooks (payload: any) {
-    window.scrollBy({
-        top: -1600,
-        behavior: 'smooth',
-    })
+    scrollSmooth()
     const { setIsLoading, navigate, searchValue } = payload
     if (!searchValue) {
         try {

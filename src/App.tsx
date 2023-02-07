@@ -3,7 +3,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { LoaderBar } from './components/LoaderBar'
 import { ThemeContext } from './context'
 import { THEMES } from './constants'
+import { FormLogin } from './components/FormLogin'
+import { FormRegister } from './components/FormRegister'
+import { ActivatePage } from './components/pages/ActivatePage'
 import './App.scss'
+import { SuccessPage } from './components/pages/SuccessPage'
 
 const CrashNetwork = lazy(() => import('./components/CrashNetwork'))
 const Layout = lazy(() => import('./components/Layout'))
@@ -32,10 +36,13 @@ export const App = () => {
                                 <Route path='/Book-Store/cart' element={<CartPage />} />
                                 <Route path='/Book-Store/favorites' element={<FavoritesPage />} />
                                 <Route path='/Book-Store/user' element={<UserSettingPage />} />
-                                <Route path='*' element={<NotFoundPage />} />
+                                <Route path='/Book-Store/login' element={<FormLogin />} />
+                                <Route path='/Book-Store/register' element={<FormRegister />} />
+                                <Route path='/Book-Store/success' element={<SuccessPage />} />
                                 <Route path='err404' element={<CrashNetwork />} />
+                                <Route path='*' element={<NotFoundPage />} />
                                 <Route path='/Book-Store/activate'>
-                                    <Route path='*' element={<></>}/>
+                                    <Route path='*' element={<ActivatePage />}/>
                                 </Route>
                             </Route>
                         </Routes>

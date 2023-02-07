@@ -6,6 +6,7 @@ import { ThemeContext } from '../../context'
 import { ArrowRightIcon } from '../Icons/ArrowRightIcon'
 import { ArrowLeftIcon } from '../Icons/ArrowLeftIcon'
 import { Button } from '../Button'
+import { scrollSmooth } from '../../redux/actionCreators/bookActionCreator'
 import './Pagination.scss'
 
 export default function Pagination () {
@@ -30,25 +31,16 @@ export default function Pagination () {
     const handlerOnPrevPage = () => {
         if (isPrevDisabled) return
         dispatch(setCurrentPage(currentPage - 1))
-        window.scrollBy({
-            top: -1600,
-            behavior: 'smooth',
-        })
+        scrollSmooth()
     }
     const handlerOnNextPage = () => {
         if (isNextDisabled) return
         dispatch(setCurrentPage(currentPage + 1))
-        window.scrollBy({
-            top: -1600,
-            behavior: 'smooth',
-        })
+        scrollSmooth()
     }
     const handlerOnCurrentPage = (value: number) => {
         dispatch(setCurrentPage(value))
-        window.scrollBy({
-            top: -1600,
-            behavior: 'smooth',
-        })
+        scrollSmooth()
     }
 
     useEffect(() => {

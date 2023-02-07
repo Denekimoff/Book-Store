@@ -57,36 +57,36 @@
         .cart__length {
           font-size: .7rem;
           position: absolute;
-          top: -50%;
+          top: -20%;
           right: 10%;
           height: fit-content;
           color: rgb(255, 255, 255);
         }
 
-        a {
-          text-decoration: none;
-          font-size: .8rem;
-          text-transform: uppercase;
-          color: #fff;
-          padding: 1rem;
-          border-radius: .6rem;
-          transition: 0.3s ease all;
+        text-decoration: none;
+        font-size: .8rem;
+        text-transform: uppercase;
+        color: #fff;
+        padding: .5rem;
+        border-radius: .3rem;
+        transition: 0.3s ease all;
+        cursor: pointer;
 
-          &:hover {
-            background: rgba(#fff, 0.1);
-          }
-
-          &:active {
-            border-radius: calc(#{.6rem} + 6px);
-          }
+        &:hover {
+          background: rgba(#fff, 0.1);
         }
 
-        &:not(:last-child) {
-          padding-bottom: 2rem;
+        &:active {
+          border-radius: calc(#{.6rem} + 6px);
+        }
+
+        &:last-child {
+          text-transform: lowercase;
+          width: 2.7rem;
 
           @include breakpoint(md) {
             height: 100%;
-            padding-bottom: 0;
+            // padding-bottom: 0;
             margin-bottom: 0;
 
           }

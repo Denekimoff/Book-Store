@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { ThemeContext } from '../../../context'
 import { clearCart } from '../../../redux/actionCreators/bookActionCreator'
+import { getMe } from '../../../redux/actionCreators/userActionCreators'
 import { IBook, IStore } from '../../../redux/types'
 import { CardBookCart } from '../../CardBookCart'
+import { FormLogin } from '../../FormLogin'
 import ArrowBack from '../../Icons/ArrowBack'
 import { Modal } from '../../Modal'
 import './CartPage.scss'
@@ -14,6 +16,8 @@ export default function CartPage () {
     const navigate = useNavigate()
     const goBack = () => navigate(-1)
     const { theme } = React.useContext(ThemeContext)
+    const { user } = useSelector((state: IStore) => state.users)
+
 
     //Calculated and Render Total Price
     const { books } = useSelector((state: IStore) => state.books)
@@ -38,33 +42,41 @@ export default function CartPage () {
         dispatch(clearCart(newCart))
     }
 
-    return (
-        <section className={`cart cart--${theme}`}>
-            <Modal controlled={true} active={showModal} title={'Confirm'} onConfirm={handlerOnConfirmModal} onClose={handlersOnCloseModal}>
-                {`Pay $${totalPrice} for you order?`}
-            </Modal>
-            <div className='wrapper'>
-                <div className='cart__body'>
-                    <div className='cart__button-back' onClick={goBack}>
-                        <ArrowBack/>
-                    </div>
-                    <div className='cart__container'>
-                        <h3 className='cart__title'>Cart</h3>
-                        <div className='cart__total'>
-                            <button className='cart__order' onClick={handlerOnClickOrder}>
-                                To order :<span>${totalPrice}</span>
-                            </button>
+    React.useEffect(() => {
+        dispatch(getMe())
+    }, [])
+
+    if(user == null) {
+        return (<FormLogin/>)
+    } else {
+        return (
+            <section className={`cart cart--${theme}`}>
+                <Modal controlled={true} active={showModal} title={'Confirm'} onConfirm={handlerOnConfirmModal} onClose={handlersOnCloseModal}>
+                    {`Pay $${totalPrice} for you order?`}
+                </Modal>
+                <div className='wrapper'>
+                    <div className='cart__body'>
+                        <div className='cart__button-back' onClick={goBack}>
+                            <ArrowBack/>
                         </div>
-                        <div className='cart__list'>
-                            {
-                                !dataCart.length ? <div className='cart__null'>Your cart is empty. Choose the product you like!</div> :
-                                    dataCart.map(({ title, subtitle, isbn13, price, image }) => <CardBookCart key={isbn13}
-                                        title={title} subtitle={subtitle} isbn13={isbn13} price={price} image={image}/>)
-                            }
+                        <div className='cart__container'>
+                            <h3 className='cart__title'>Cart</h3>
+                            <div className='cart__total'>
+                                <button className='cart__order' onClick={handlerOnClickOrder}>
+                                To order :<span>${totalPrice}</span>
+                                </button>
+                            </div>
+                            <div className='cart__list'>
+                                {
+                                    !dataCart.length ? <div className='cart__null'>Your cart is empty. Choose the product you like!</div> :
+                                        dataCart.map(({ title, subtitle, isbn13, price, image }) => <CardBookCart key={isbn13}
+                                            title={title} subtitle={subtitle} isbn13={isbn13} price={price} image={image}/>)
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    )
+            </section>
+        )
+    }
 }

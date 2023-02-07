@@ -50,5 +50,10 @@ export interface IBooksStore {
 export interface IStore {
     books: IBooksStore,
     setting: ISettingStore,
-    user: IUser,
+    users: IUser,
+}
+
+export interface JWTResponce {
+    access: string,
+    refresh: string,
 }
