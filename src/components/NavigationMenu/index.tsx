@@ -92,7 +92,7 @@ export default function Navbar() {
                         Cart
                         {(user !== null) &&(cart.length > 0) && <div className='cart__length'>{cart.length}</div>}
                     </li>
-                    <li onClick={() => handlerOnClickLink('setting')}>
+                    <li onClick={() => handlerOnClickLink('user')}>
                         Setting
                     </li>
                     {(user !== null) ? (<li onClick={handlerOnClickName}><LogoutIcon/></li>)

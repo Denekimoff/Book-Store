@@ -4,8 +4,8 @@ const LoaderMiniSkeleton = () => (
     <div className='skelet'>
         <ContentLoader
             speed={2}
-            width={250}
-            height={400}
+            width={230}
+            height={300}
             viewBox='0 0 250 400'
             backgroundColor='#f3f3f3'
             foregroundColor='#d4d4d4'>

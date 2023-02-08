@@ -6,8 +6,11 @@ import { THEMES } from './constants'
 import { FormLogin } from './components/FormLogin'
 import { FormRegister } from './components/FormRegister'
 import { ActivatePage } from './components/pages/ActivatePage'
-import './App.scss'
 import { SuccessPage } from './components/pages/SuccessPage'
+import './App.scss'
+
+//login - kipab90625@lubde.com
+//pass - testtesttest
 
 const CrashNetwork = lazy(() => import('./components/CrashNetwork'))
 const Layout = lazy(() => import('./components/Layout'))

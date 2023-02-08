@@ -45,15 +45,19 @@
         list-style-type: none;
         border-top: 1px solid #0101;
 
+        .skelet{
+          display: flex;
+          justify-content: center;
+        }
         @media (max-width: 780px) {
           .skelet {
-            width: 50%;
+            width: 33%;
           }
         }
 
         @media (max-width: 550px) {
           .skelet {
-            width: 100%;
+            width: 40%;
           }
         }
       }

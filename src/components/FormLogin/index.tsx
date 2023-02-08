@@ -32,7 +32,7 @@ export const FormLogin = () => {
                         <div className='login__item'>
                             <label className='login__label'>
                         Password
-                                <input type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                                <input type='password' required min={8} value={password} onChange={(e) => setPassword(e.target.value)}/>
                             </label>
                         </div>
                         <div className='login__text'>You do not have account?<span onClick={() => navigate('/Book-Store/register')}>Register</span></div>

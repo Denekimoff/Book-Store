@@ -51,7 +51,7 @@ function* fetchSignIn (action: any) {
         yield fetchGetUserInfo()
         navigate('/Book-Store/')
     } else {
-        alert('No authorized')
+        alert(`This "${userInfo.email}" e-mail is not registered.`)
     }
 }
 
@@ -121,7 +121,6 @@ function* fetchGetUserInfo(){
     if (token) {
         const data: Response = yield fetch('https://studapi.teachmeskills.by/auth/users/me/', {
             headers: {
-                'Content-Type': 'application/json;charset=utf-8',
                 'Authorization': `Bearer ${token}`,
             },
         })

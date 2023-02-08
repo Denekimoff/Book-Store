@@ -1,3 +1,4 @@
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { IStore } from '../../redux/types'
 import { TABS } from '../../constants'
@@ -11,6 +12,10 @@ const Tabs = () => {
     const dispatch = useDispatch()
     const { activeTab } = useSelector((state: IStore) => state.setting)
     const [ data ] = useSelector((state: IStore) => state.books.activeBook)
+
+    React.useEffect(() => {
+        dispatch(setActiveTab('Description'))
+    }, [])
 
     return (
         <section className='tabs'>

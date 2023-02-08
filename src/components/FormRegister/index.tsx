@@ -31,7 +31,7 @@ export const FormRegister = () => {
                         <div className='register__item'>
                             <label className='register__label'>
                         Username
-                                <input type='text' value={username} onChange={(e) => setUsername(e.target.value)}/>
+                                <input type='text' required minLength={4} value={username} onChange={(e) => setUsername(e.target.value)}/>
                             </label>
                         </div>
                         <div className='register__item'>
@@ -43,13 +43,13 @@ export const FormRegister = () => {
                         <div className='register__item'>
                             <label className='register__label'>
                         Password
-                                <input type='password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                                <input type='password' required min={8} value={password} onChange={(e) => setPassword(e.target.value)}/>
                             </label>
                         </div>
                         <div className='register__item'>
                             <label className='register__label'>
                         Confirm Password
-                                <input type='password' value={confirm} onChange={(e) => setConfirm(e.target.value)}/>
+                                <input type='password' required min={8} value={confirm} onChange={(e) => setConfirm(e.target.value)}/>
                             </label>
                         </div>
                         <div className='register__text'>You have account?<span onClick={() => navigate('/Book-Store/login')}>Login</span></div>
