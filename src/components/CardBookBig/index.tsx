@@ -58,11 +58,6 @@ const CardBookBig = () => {
                     <div className='cardbook__image' onClick={handlerOnClickImage}>
                         <img src={bookStore.image} alt='book' />
                     </div>
-                    <div className={isIncludeFavorites ? 'cardbook__like cardbook__like--active' : 'cardbook__like'}>
-                        <div className='cardbook__like-button' onClick={() => handlerClickOnLikeCard(bookStore.isbn13)}>
-                            <LikeIcon/>
-                        </div>
-                    </div>
                 </div>
                 <div className='cardbook__info' ref={infoRef}>
                     <div className='cardbook__market'>
@@ -79,8 +74,15 @@ const CardBookBig = () => {
                     </div>
                     <div className='cardbook__more' onClick={handlerClickOnMore}>More details</div>
                     <div className='cardbook__buttons'>
-                        <button className='cardbook__add' onClick={() => handlerClickOnAddToCart(bookStore.isbn13)}>{!isIncludeCart ? 'Add to cart' : 'Remove from cart'}</button>
-                        <button className='cardbook__previews'><a href={bookStore.url} target='_blank' rel='noopener noreferrer'>Previews book</a></button>
+                        <button className='cardbook__add' onClick={() => handlerClickOnAddToCart(bookStore.isbn13)}>
+                            {!isIncludeCart ? 'Add to cart' : 'Remove from cart'}
+                        </button>
+                        <button className='cardbook__previews'>
+                            <a href={bookStore.url} target='_blank' rel='noopener noreferrer'>Previews book</a>
+                        </button>
+                        <button className={isIncludeFavorites ? 'cardbook__favorites cardbook__favorites--active' : 'cardbook__favorites'} onClick={() => handlerClickOnLikeCard(bookStore.isbn13)}>
+                            {isIncludeFavorites ? 'Remove from Favorites' : 'Add to Favorites'}
+                        </button>
                     </div>
                 </div>
             </div>

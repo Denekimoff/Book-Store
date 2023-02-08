@@ -26,7 +26,6 @@
     justify-content: space-around;
 
     .cardbook__present {
-      position: relative;
       max-width: 45%;
       max-height: 27rem;
       background-color: $background_card_single;
@@ -42,48 +41,6 @@
         img {
           width: inherit;
         }
-      }
-
-      .cardbook__like {
-        padding: .2rem;
-        position: absolute;
-        top: .3rem;
-        right: .2rem;
-        border-radius: 50%;
-        background-color: #75757559;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all .2s;
-
-        .cardbook__like-button {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
-          svg {
-            width: 2rem;
-            height: 2rem;
-            fill: #fff;
-          }
-
-
-        }
-      }
-
-      .cardbook__like--active {
-        background-color: #fff;
-
-        .cardbook__like-button {
-          svg {
-            fill: red;
-            stroke: red;
-          }
-        }
-      }
-
-      .cardbook__like:hover {
-        cursor: pointer;
       }
     }
 
@@ -189,7 +146,9 @@
         justify-content: space-around;
 
         .cardbook__add,
-        .cardbook__previews {
+        .cardbook__previews,
+        .cardbook__favorites {
+          margin-bottom: 1rem;
           width: 40%;
           display: flex;
           align-items: center;
@@ -217,6 +176,18 @@
             margin: 0;
             color: #000;
             text-decoration: none;
+          }
+        }
+
+        .cardbook__favorites {
+          margin-bottom: 0;
+          padding: .7rem;
+          border: 1px solid #000;
+
+          &--active {
+            // color: #fff;
+            background-color: rgb(255, 182, 182);
+            border: 1px solid $background_card_single;
           }
         }
 
