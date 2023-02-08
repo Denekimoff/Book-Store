@@ -14,7 +14,6 @@
 
   .modal__content {
     min-width: 50vw;
-    min-height: 70vh;
     background-color: transparent;
     cursor: default;
 
@@ -45,6 +44,10 @@
     cursor: default;
     user-select: none;
     align-items: center;
+
+    @media (max-width: 900px) {
+      width: 100%;
+    }
 
     .modal__top {
       padding: 2rem;

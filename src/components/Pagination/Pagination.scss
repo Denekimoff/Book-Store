@@ -14,6 +14,9 @@
     }
 
     .pagination__integers {
+      display: flex;
+      align-items: center;
+
       .pagination__page {
         font-family: $font_montserrat;
         font-size: .8rem;

@@ -1,5 +1,6 @@
-import { PropsWithChildren } from 'react'
+import React, { PropsWithChildren } from 'react'
 import ReactDOM from 'react-dom'
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import './Modal.scss'
 
 interface IModalProps {
@@ -11,8 +12,14 @@ interface IModalProps {
 }
 
 export const Modal = ({ controlled, active, title, onConfirm, onClose, children }: PropsWithChildren<IModalProps>): any => {
+    //Ref and Stop Scroll on anable Menu
+    const { current } = React.useRef(document.body)
+    React.useEffect(() => {
+        active ? disableBodyScroll(current) : enableBodyScroll(current)
+        return () => clearAllBodyScrollLocks()
+    }, [active])
+
     if (!active) return null
-    console.log(onConfirm)
 
     const handlerOnStopPropagation = (event: any) => event.stopPropagation()
 

@@ -8,12 +8,14 @@ import { AiOutlineClose } from 'react-icons/ai'
 import { BiMenuAltRight } from 'react-icons/bi'
 import { Modal } from '../Modal'
 import { logOut } from '../../redux/actionCreators/userActionCreators'
-import './NavigationMenu.scss'
 import { LogoutIcon } from '../Icons/LogoutIcon'
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
+import './NavigationMenu.scss'
 
 export default function Navbar() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+
     const { user } = useSelector((state: IStore) => state.users)
 
     //Render count cart
@@ -36,22 +38,31 @@ export default function Navbar() {
 
         return () => window.removeEventListener('resize', handleResize)
     }, [])
+
     useEffect(() => {
         if (size.width > 900 && menuOpen) {
             setMenuOpen(false)
         }
     }, [size.width, menuOpen])
+
     const menuToggleHandler = () => {
         setMenuOpen((prev) => !prev)
     }
 
+    //Ref and Stop Scroll on anable Menu
+    const { current } = React.useRef(document.body)
+    useEffect(() => {
+        menuOpen ? disableBodyScroll(current) : enableBodyScroll(current)
+        return () => clearAllBodyScrollLocks()
+    }, [menuOpen])
+
     //Close menu on click link
-    const handlerOnClickLink = () => {
+    const handlerOnClickMenu = () => {
         if(menuOpen) setMenuOpen(prev => !prev)
         dispatch(setSearchValue(''))
     }
 
-    const handlerClicker = (href: string) => {
+    const handlerOnClickLink = (href: string) => {
         navigate(`/Book-Store/${href}`)
     }
 
@@ -73,15 +84,15 @@ export default function Navbar() {
         <>
             <Modal controlled={true} active={showModal} title={'Confirm'} onConfirm={handlerOnConfirmModal} onClose={handlersOnCloseModal}>You really want LogOut?</Modal>
             <nav className={`header__nav ${menuOpen && size.width < 900 ? 'isMenu' : ''}`}>
-                <ul onClick={handlerOnClickLink}>
-                    <li onClick={() => handlerClicker('favorites')}>
+                <ul onClick={handlerOnClickMenu}>
+                    <li onClick={() => handlerOnClickLink('favorites')}>
                         Favorites
                     </li>
-                    <li onClick={() => handlerClicker('cart')}>
+                    <li onClick={() => handlerOnClickLink('cart')}>
                         Cart
                         {(user !== null) &&(cart.length > 0) && <div className='cart__length'>{cart.length}</div>}
                     </li>
-                    <li onClick={() => handlerClicker('setting')}>
+                    <li onClick={() => handlerOnClickLink('setting')}>
                         Setting
                     </li>
                     {(user !== null) ? (<li onClick={handlerOnClickName}><LogoutIcon/></li>)
