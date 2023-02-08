@@ -28,7 +28,7 @@
     .cardbook__present {
       position: relative;
       max-width: 45%;
-      max-height: 22rem;
+      max-height: 27rem;
       background-color: $background_card_single;
       display: flex;
       align-items: center;
@@ -38,6 +38,10 @@
       .cardbook__image {
         width: 100%;
         height: 100%;
+
+        img {
+          width: inherit;
+        }
       }
 
       .cardbook__like {
@@ -254,7 +258,8 @@
       .cardbook__present {
         @media (max-width: 550px) {
           max-width: none;
-          width: 100%;
+          width: fit-content;
+          height: fit-content;
         }
 
         .cardbook__like {

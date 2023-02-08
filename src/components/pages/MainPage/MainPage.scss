@@ -37,6 +37,7 @@
       }
 
       .main__list {
+        min-height: 55vh;
         padding-top: 1rem;
         display: flex;
         flex-flow: row wrap;
@@ -58,7 +59,7 @@
       }
 
       .main__null {
-        min-height: 30vh;
+        min-height: 40vh;
         font-family: $font_montserrat;
 
         p {
@@ -69,6 +70,13 @@
           padding: 1.5rem;
           font-weight: 700;
           font-size: 1.5rem;
+        }
+
+        @media (max-width: 780px) {
+          min-height: 53vh;
+        }
+        @media (max-width: 550px) {
+          min-height: 63vh;
         }
       }
     }

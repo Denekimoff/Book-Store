@@ -28,7 +28,7 @@ export default function BookContainer () {
 
     return (
         <>
-            <div className='main__list' style={{minHeight: '55vh'}}>
+            <div className='main__list'>
                 {isLoading ? skeletonRender.map((_, i) => <LoaderMiniSkeleton key={i}/>) :
                     booksRender.map((book) => <CardBookMini key={book.isbn13} {...book} />)
                 }

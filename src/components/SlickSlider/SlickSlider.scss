@@ -27,6 +27,9 @@
     .slick-slider {
       .slick-list {
         padding-left: 3rem;
+        @media (max-width: 780px) {
+          padding-left: 2rem;
+        }
       }
 
       button {

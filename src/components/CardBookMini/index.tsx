@@ -11,14 +11,15 @@ export interface ICardBookMini {
   subtitle?: string,
   image?: string,
   price?: string,
+  variant?: string,
 }
 
-export const CardBookMini = ({ isbn13, title, subtitle, image, price }: ICardBookMini) => {
+export const CardBookMini = ({ isbn13, title, subtitle, image, price, variant }: ICardBookMini) => {
     const dispatch = useDispatch()
     const handlerSearchClear = () => dispatch(setSearchValue(''))
 
     return (
-        <div className='cardbook cardbook--sm' onClick={handlerSearchClear}>
+        <div className={`cardbook cardbook--sm cardbook--${variant}`} onClick={handlerSearchClear}>
             <div className='cardbook__present'>
                 <Link to={`/Book-Store/${isbn13}`}>
                     <div className='cardbook__image'>

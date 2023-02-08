@@ -10,6 +10,10 @@
   justify-content: space-between;
   background-color: rgba(236, 235, 235, 0.7);
 
+  @media (max-width: 780px) {
+    min-height: 24vh;
+  }
+
   .cartbook__remove {
     margin-bottom: 2rem;
     width: 2.5rem;
@@ -33,6 +37,15 @@
 
       .cartbook__image {
         background-color: $background_secondary;
+
+        @media (max-width: 780px) {
+          max-width: 15rem;
+
+          img {
+            max-width: inherit;
+          }
+
+        }
       }
     }
   }

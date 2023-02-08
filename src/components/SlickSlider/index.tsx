@@ -43,7 +43,7 @@ export const SlickSlider = () => {
             </div>
             <div className='myslider__body'>
                 <Slider {...settings}>
-                    {books.map(({ title, subtitle, isbn13, price, image }) => <CardBookMini key={isbn13} title={title} subtitle={subtitle} isbn13={isbn13} price={price} image={image}/>)}
+                    {books.map(({ title, subtitle, isbn13, price, image }) => <CardBookMini key={isbn13} variant='slider' title={title} subtitle={subtitle} isbn13={isbn13} price={price} image={image}/>)}
                 </Slider>
             </div>
         </section>

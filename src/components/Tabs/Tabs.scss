@@ -82,11 +82,11 @@
           top: 9px;
         }
 
-        @media (max-width: 550px) {
-          margin: 0 .2rem;
-          width: 1.5rem;
-          height: 1.5rem;
-        }
+      }
+
+      @media (max-width: 550px) {
+        width: 2rem;
+        height: 2rem;
       }
     }
   }

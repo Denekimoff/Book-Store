@@ -3,6 +3,10 @@
 .subscribe {
   padding-top: 2rem;
 
+  @media (max-width: 780px) {
+    padding-top: 0;
+  }
+
   .subscribe__body {
     width: 100%;
     padding: 2rem;

@@ -14,7 +14,7 @@ export const ActivatePage = () => {
         }, navigate))
     }, [])
     return (
-        <div className='activate' style={{minHeight: '85vh', fontSize: '2rem', display: 'flex',justifyContent: 'center', alignItems: 'center'}}>
+        <div className='activate' style={{minHeight: '89vh', fontSize: '2rem', display: 'flex',justifyContent: 'center', alignItems: 'center'}}>
             <h2>ACTIVATION YOUR ACCOUNT</h2>
         </div>
     )

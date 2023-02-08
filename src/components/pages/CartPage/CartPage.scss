@@ -1,7 +1,14 @@
 @import '../../../default_variables.scss';
 
 .cart {
-  min-height: 85vh;
+  min-height: 87vh;
+
+  @media (max-width: 880px) {
+    min-height: 90vh;
+  }
+  @media (max-width: 550px) {
+    min-height: 91vh;
+  }
 
   .wrapper {
     .cart__body {
@@ -72,6 +79,9 @@
             padding: 1.5rem;
             font-weight: 500;
             font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
         }
       }
